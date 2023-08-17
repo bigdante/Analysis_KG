@@ -1,0 +1,354 @@
+{
+  "date of birth": {
+    "description": "\"date of birth\" refers to date on which the subject was born.",
+    "examples": ""
+  },
+  "place of birth": {
+    "description": "\"place of birth\" refers to most specific known (e.g. city instead of country, or hospital instead of city) birth location of a person, animal or fictional character.",
+    "examples": "Julius Caesar place of birth Rome; Elena Kagan place of birth New York City; Jimmy Carter place of birth Lillian G. Carter Nursing Center; Gioachino Rossini place of birth Casa Rossini"
+  },
+  "date of death": {
+    "description": "\"date of death\" refers to date on which the subject died.",
+    "examples": ""
+  },
+  "place of death": {
+    "description": "\"place of death\" refers to most specific known (e.g. city instead of country, or hospital instead of city) death location of a person, animal or fictional character.",
+    "examples": "Ren\\u00E9 Descartes place of death Stockholm; Sung Jae-gi place of death Mapo Bridge; Richard D\\u00FCrr place of death Lausanne University Hospital; Captain Nemo place of death Pacific Ocean"
+  },
+  "father": {
+    "description": "\"father\" refers to male parent of the subject. For stepfather, use \\\"stepparent\\\" (P3448).",
+    "examples": "Jane Fonda father Henry Fonda; Sveinn Bj\\u00F6rnsson father Bj\\u00F6rn J\\u00F3nsson; Indira Gandhi father Jawaharlal Nehru; Eros father Ares; Eros father Zephyrus; daughter of Adrian II father Adrian II; Michael Douglas father Kirk Douglas"
+  },
+  "mother": {
+    "description": "\"mother\" refers to female parent of the subject. For stepmother, use \\\"stepparent\\\" (P3448).",
+    "examples": "Charles, Prince of Wales mother Elizabeth II; Jesus mother Virgin Mary; Ares mother Hera"
+  },
+  "child": {
+    "description": "\"child\" refers to subject has object as child. Do not use for stepchildren.",
+    "examples": "Kirk Douglas child Michael Douglas; Virgin Mary child Jesus; Zeus child Athena; Lord Byron child Ada Lovelace; Charles II of England child James Scott, 1st Duke of Monmouth"
+  },
+  "sibling": {
+    "description": "\"sibling\" refers to the subject and the object have the same parents (brother, sister, etc.); use \\\"relative\\\" (P1038) for siblings-in-law (brother-in-law, sister-in-law, etc.) and step-siblings (step-brothers, step-sisters, etc.).",
+    "examples": "Lisa Simpson sibling Bart Simpson; Jan Martel sibling Jo\u00ebl Martel; Jo\u00ebl Martel sibling Jan Martel; Elizabeth I of England sibling Mary I of England"
+  },
+  "educated at": {
+    "description": "\"educated at\" refers to educational institution attended by subject.",
+    "examples": "Bertrand Russell educated at University of Cambridge; Stephen Hawking educated at University of Oxford; Henry David Thoreau educated at Harvard University"
+  },
+  "notable work": {
+    "description": "\"notable work\" refers to notable scientific, artistic or literary work, or other work of significance among subject's works.",
+    "examples": "William Shakespeare notable work Hamlet; J. K. Rowling notable work Harry Potter; Leonardo da Vinci notable work Mona Lisa"
+  },
+  "award received": {
+    "description": "\"award received\" refers to award or recognition received by a person, organisation or creative work.",
+    "examples": "Jehan Sadat award received Pearl S. Buck Award; Aaron Swartz award received EFF Pioneer Award; Panicos Krystallis award received Cypriot First Division top goalscorers; Saint Petersburg award received Hero City; Friedrich Hayek award received Prize in Economic Sciences in Memory of Alfred Nobel; Gunnar Myrdal award received Prize in Economic Sciences in Memory of Alfred Nobel; La La Land award received Academy Award for Best Director"
+  },
+  "participant of": {
+    "description": "\"participant of\" refers to event in which a person or organization was/is a participant; inverse of P710 or P1923.",
+    "examples": ""
+  },
+  "participant": {
+    "description": "\"participant\" refers to person, group of people or organization (object) that actively takes/took part in an event or process (subject).  Preferably qualify with \\\"object has role\\\" (P3831). Use P1923 for participants that are teams..",
+    "examples": "Saudi Arabian-led intervention in Yemen participant Saudi Arabia; 2010 Wimbledon Championships participant Roger Federer; First Continental Congress participant George Washington; Hambach Festival participant Ludwig B\\u00F6rne"
+  },
+  "country of citizenship": {
+    "description": "\"country of citizenship\" refers to the object is a country that recognizes the subject as its citizen.",
+    "examples": "Nelson Mandela country of citizenship South Africa; Mohandas Karamchand Gandhi country of citizenship British India; Sergio Mattarella country of citizenship Italy; Napoleon country of citizenship First French Empire; George Washington country of citizenship Great Britain; George Washington country of citizenship United States of America"
+  },
+  "religion": {
+    "description": "\"religion\" refers to the belief system, faith, or spiritual practices of the subject, which can be an individual, group, or organization.",
+    "examples": "Narendra Modi religion Hinduism"
+  },
+  "employer": {
+    "description": "\"employer\" refers to person or organization for which the subject works or worked.",
+    "examples": "Albert Verlinde employer Stage Entertainment Germany; Neil Armstrong employer National Aeronautics and Space Administration"
+  },
+  "league": {
+    "description": "\"league\" refers to league in which team or player plays or has played in.",
+    "examples": ""
+  },
+  "residence": {
+    "description": "\"residence\" refers to the place where the person is or has been, resident.",
+    "examples": "Kim Dotcom residence Queenstown; Eliza Bunton Johnson residence Johnson Cabin"
+  },
+  "member of": {
+    "description": "\"member of\" refers to organization, club or musical group to which the subject belongs. Do not use for membership in ethnic or social groups, nor for holding a political position, such as a member of parliament (use P39 for that)..",
+    "examples": "Iring Fetscher member of PEN Centre Germany; Iron Man member of Avengers; Diana Ross member of The Supremes; Singapore MRT member of Community of Metros"
+  },
+  "member of political party": {
+    "description": "\"member of political party\" refers to the political party of which this politician is or has been a member or otherwise affiliated.",
+    "examples": "Eleanor Roosevelt member of political party Democratic Party; Leonid Brezhnev member of political party Communist Party of the Soviet Union; Deng Xiaoping member of political party Communist Party of China"
+  },
+  "member of sports team": {
+    "description": "\"member of sports team\" refers to sports teams or clubs that the subject represents or represented.",
+    "examples": "Diego Maradona member of sports team FC Barcelona; Marcel Kittel member of sports team Team DSM"
+  },
+  "position held": {
+    "description": "\"position held\" refers to subject currently or formerly holds the object position or public office.",
+    "examples": "George Washington position held President of the United States; Frederick II, Holy Roman Emperor position held Holy Roman Emperor; Barack Obama position held United States senator"
+  },
+  "cast member": {
+    "description": "\"cast member\" refers to actor in the subject production [use \\\"character role\\\" (P453) and/or \\\"name of the character role\\\" (P4633) as qualifiers] [use \\\"voice actor\\\" (P725) for voice-only role].",
+    "examples": "Cast Away cast member Tom Hanks; Cast Away cast member Helen Hunt; Cast Away cast member Paul Sanchez; Titanic cast member Leonardo DiCaprio; Titanic cast member Kate Winslet; The Book of Mormon: Original Broadway Cast Recording cast member Josh Gad; The Book of Mormon: Original Broadway Cast Recording cast member Andrew Rannells; The Book of Mormon: Original Broadway Cast Recording cast member Rory O'Malley; The Book of Mormon: Original Broadway Cast Recording cast member Nikki M. James; The Book of Mormon: Original Broadway Cast Recording cast member Justin Bohon; The Book of Mormon: Original Broadway Cast Recording cast member Kevin Duda; The Book of Mormon: Original Broadway Cast Recording cast member Michael Potts; The Book of Mormon: Original Broadway Cast Recording cast member Lewis Cleale; The Book of Mormon: Original Broadway Cast Recording cast member Asmeret Ghebremichael; The Book of Mormon: Original Broadway Cast Recording cast member Michael James Scott"
+  },
+  "conflict": {
+    "description": "\"conflict\" refers to battles, wars or other military engagements in which the person or item participated.",
+    "examples": "Michel Ney conflict Battle of Borodino; L\\u00E9opard conflict Battle of La R\\u00E9union; Crixus conflict Third Servile War"
+  },
+  "work location": {
+    "description": "\"work location\" refers to location where persons or organisations were actively participating in employment, business or other work.",
+    "examples": "Filippo Brunelleschi work location Florence; Joseph Stalin work location Saint Petersburg; Joseph Stalin work location Moscow"
+  },
+  "country": {
+    "description": "\"country\" refers to sovereign state of this item (not to be used for human beings).",
+    "examples": "Wusung Radio Tower country People's Republic of China; Mount Everest country Nepal; Mount Everest country People's Republic of China; Andorra country Andorra"
+  },
+  "country of origin": {
+    "description": "\"country of origin\" refers to country of origin of this item (creative work, food, phrase, product, etc.).",
+    "examples": "Breaking Bad country of origin United States of America; mozzarella country of origin Italy; Stamppot country of origin Netherlands; Come Together country of origin United Kingdom"
+  },
+  "located in the administrative territorial entity": {
+    "description": "\"located in the administrative territorial entity\" refers to the item is located on the territory of the following administrative entity. Use P276 for specifying locations that are non-administrative places and for items about events. Use P1382 if the item falls only partially into the administrative entity..",
+    "examples": "Seattle located in the administrative territorial entity King County; Eiffel Tower located in the administrative territorial entity 7th arrondissement of Paris; Jungfrau located in the administrative territorial entity Lauterbrunnen; Jungfrau located in the administrative territorial entity Fieschertal; University District located in the administrative territorial entity Seattle"
+  },
+  "contains administrative territorial entity": {
+    "description": "\"contains administrative territorial entity\" refers to (list of) direct subdivisions of an administrative territorial entity.",
+    "examples": ""
+  },
+  "location": {
+    "description": "\"location\" refers to location of the object, structure or event. In the case of an administrative entity as containing item use P131. For statistical entities use P8138. In the case of a geographic entity use P706. Use P7153 for locations associated with the object..",
+    "examples": "Mona Lisa location Louvre Museum; Great Smog location London; Battle of the Hornburg location Helm's Deep; Battle of Chios location Chios Strait; Passover location worldwide; Carregado por Dem\\u00F4nios location bronchus"
+  },
+  "headquarters location": {
+    "description": "\"headquarters location\" refers to city, where an organization's headquarters is or has been situated. Use P276 qualifier for specific building.",
+    "examples": "Organization of the Petroleum Exporting Countries headquarters location Vienna; Wikimedia Foundation headquarters location San Francisco; Royal Dutch Shell headquarters location The Hague; Santos Futebol Clube headquarters location Jo\\u00E3o Pessoa; Baranagore Ramakrishna Mission Ashrama High School headquarters location Belur Math; Social Democratic Party of Germany headquarters location Willy-Brandt-Haus"
+  },
+  "narrative location": {
+    "description": "\"narrative location\" refers to the narrative of the work is set in this location.",
+    "examples": "Paul et Virginie narrative location Mauritius Island; Nineteen Eighty-Four narrative location London; 2001: A Space Odyssey narrative location outer space; 300 narrative location Thermopylae"
+  },
+  "location of formation": {
+    "description": "\"location of formation\" refers to location where a group or organization was formed.",
+    "examples": "The Beatles location of formation Liverpool; Birmingham Small Arms Company location of formation Liverpool"
+  },
+  "located on terrain feature": {
+    "description": "\"located on terrain feature\" refers to located on the specified (geo)physical feature. Should not be used when the value is only political/administrative (P131) or a mountain range (P4552)..",
+    "examples": ""
+  },
+  "located in or next to body of water": {
+    "description": "\"located in or next to body of water\" refers to sea, lake, river or stream.",
+    "examples": "HafenCity located in or next to body of water Zollkanal; Campania located in or next to body of water Tyrrhenian Sea; Phare d'Eckm\\u00FChl located in or next to body of water Atlantic Ocean; Saint Petersburg located in or next to body of water Neva; Saint Petersburg located in or next to body of water Gulf of Finland; Baranagar located in or next to body of water Ganges"
+  },
+  "basin country": {
+    "description": "\"basin country\" refers to country that have drainage to/from or border the body of water.",
+    "examples": "Vltava basin country Czech Republic; Persian Gulf basin country United Arab Emirates; Lake Baikal basin country Mongolia; Lake Baikal basin country Russia; Caspian Sea basin country Turkmenistan; Mediterranean Sea basin country Morocco"
+  },
+  "mouth of the watercourse": {
+    "description": "\"mouth of the watercourse\" refers to the body of water to which the watercourse drains.",
+    "examples": "Vltava mouth of the watercourse Elbe; Rivi\\u00E8re des Remparts mouth of the watercourse Indian Ocean; Okavango River mouth of the watercourse Okavango Delta"
+  },
+  "capital of": {
+    "description": "\"capital of\" refers to country, state, department, canton or other administrative division of which the municipality is the governmental seat.",
+    "examples": "Niamey capital of Niger; Berlin capital of Germany"
+  },
+  "capital": {
+    "description": "\"capital\" refers to seat of government of a country, province, state or other type of administrative territorial entity.",
+    "examples": "Estonia capital Tallinn; Russia capital Moscow; Russia capital Saint Petersburg; Italy capital Rome; Bolivia capital Sucre; Bolivia capital La Paz; Regenkreis capital Straubing; Regenkreis capital Regensburg"
+  },
+  "continent": {
+    "description": "\"continent\" refers to continent of which the subject is a part.",
+    "examples": "Afghanistan continent Asia; India continent Asia; Libya continent Africa; Metropolitan France continent Europe; France continent Europe"
+  },
+  "head of government": {
+    "description": "\"head of government\" refers to head of the executive power of this town, city, municipality, state, country, or other governmental body.",
+    "examples": "Germany head of government Angela Merkel; Russia head of government Vladimir Putin; United States of America head of government Joe Biden; Indonesia head of government Joko Widodo; Turkey head of government Recep Tayyip Erdo\\u011Fan"
+  },
+  "head of state": {
+    "description": "\"head of state\" refers to official with the highest formal authority in a country/state.",
+    "examples": ""
+  },
+  "chairperson": {
+    "description": "\"chairperson\" refers to presiding member of an organization, group or body.",
+    "examples": "United Nations chairperson Ant\\u00F3nio Guterres; Bundestag of Germany chairperson Norbert Lammert; United States House of Representatives chairperson Paul Ryan; Christian Democratic Union chairperson Angela Merkel; United Nations General Assembly chairperson Mogens Lykketoft"
+  },
+  "followed by": {
+    "description": "\"followed by\" refers to immediately following item in a series of which the subject is a part [if the subject has been replaced, e.g. political offices, use \"replaced by\" (P1366)].",
+    "examples": ""
+  },
+  "follows": {
+    "description": "\"follows\" refers to immediately prior item in a series of which the subject is a part [if the subject has replaced the preceding item, e.g. political offices, use \"replaces\" (P1365)].",
+    "examples": ""
+  },
+  "legislative body": {
+    "description": "\"legislative body\" refers to legislative body governing this entity; political institution with elected representatives, such as a parliament/legislature or council.",
+    "examples": "United Kingdom legislative body Parliament of the United Kingdom; New York City legislative body New York City Council; Israel legislative body Knesset"
+  },
+  "applies to jurisdiction": {
+    "description": "\"applies to jurisdiction\" refers to the item (institution, law, public office, public register...) or statement belongs to or has power over or applies to the value (a territorial jurisdiction: a country, state, municipality, ...).",
+    "examples": "European Central Bank applies to jurisdiction Eurozone; President of the United States applies to jurisdiction United States of America; member of the State Senate of Oregon applies to jurisdiction Oregon; mayor of Paris applies to jurisdiction Paris; Criminal Code of Belarus applies to jurisdiction Belarus; North American Free Trade Agreement applies to jurisdiction Mexico; North American Free Trade Agreement applies to jurisdiction United States of America; North American Free Trade Agreement applies to jurisdiction Canada; United States District Court for the District of Columbia applies to jurisdiction Washington, D.C."
+  },
+  "creator": {
+    "description": "\"creator\" refers to maker of this creative work or other object (where no more specific property exists).",
+    "examples": "The Potato Eaters creator Vincent van Gogh"
+  },
+  "performer": {
+    "description": "\"performer\" refers to actor, musician, band or other performer associated with this role or musical work.",
+    "examples": "Rent performer Anthony Rapp; Rent performer Daphne Rubin-Vega; Luke Skywalker performer Mark Hamill"
+  },
+  "director": {
+    "description": "\"director\" refers to director(s) of film, TV-series, stageplay, video game or similar.",
+    "examples": "Titanic director James Cameron; The Eel director Shohei Imamura; Metal Gear Solid 2: Sons of Liberty director Hideo Kojima"
+  },
+  "publisher": {
+    "description": "\"publisher\" refers to organization or person responsible for publishing books, periodicals, printed music, podcasts, games or software.",
+    "examples": "The Oxford English Dictionary publisher Oxford University Press; StarCraft publisher Blizzard Entertainment; The New York Times publisher A. G. Sulzberger"
+  },
+  "instance of": {
+    "description": "\"instance of\" refers to that class of which this subject is a particular example and member.",
+    "examples": ""
+  },
+  "parent taxon": {
+    "description": "\"parent taxon\" refers to closest parent taxon of the taxon in question.",
+    "examples": "pig parent taxon wild pig; butterfly parent taxon Lepidoptera; Northern Raven parent taxon Corvus; dog parent taxon gray wolf"
+  },
+  "subclass of": {
+    "description": "\"subclass of\" refers to next higher class or type; all instances of these items are instances of those items; this item is a class (subset) of that item. Not to be confused with P31 (instance of).",
+    "examples": ""
+  },
+  "publication date": {
+    "description": "\"publication date\" refers to date or point in time when a work was first published or released.",
+    "examples": ""
+  },
+  "inception": {
+    "description": "\"inception\" refers to date or point in time when the subject came into existence as defined.",
+    "examples": ""
+  },
+  "start time": {
+    "description": "\"start time\" refers to time an item begins to exist or a statement starts being valid.",
+    "examples": ""
+  },
+  "point in time": {
+    "description": "\"point in time\" refers to time and date something took place, existed or a statement was true.",
+    "examples": ""
+  },
+  "part of": {
+    "description": "\"part of\" refers to object of which the subject is a part (if this subject is already part of object A which is a part of object B, then please only make the subject part of object A). Inverse property of \"has part\" (P527, see also \"has parts of the class\" (P2670))..",
+    "examples": ""
+  },
+  "has part": {
+    "description": "\"has part\" refers to part of this subject; inverse property of \\\"part of\\\" (P361). See also \\\"has parts of the class\\\" (P2670)..",
+    "examples": "Eurasia has part Europe; Eurasia has part Asia; Solar System has part Mercury; Solar System has part Venus; Solar System has part Earth; Solar System has part Mars; Americas has part North America; Americas has part South America; The Beatles has part John Lennon; The Beatles has part Paul McCartney; The Beatles has part Ringo Starr; The Beatles has part George Harrison; Bible has part Old Testament; Bible has part New Testament; Bible has part Biblical apocrypha; triathlon has part running; triathlon has part road bicycle racing; triathlon has part swimming"
+  },
+  "production company": {
+    "description": "\"production company\" refers to company that produced this film, audio or performing arts work.",
+    "examples": "Bambi production company The Walt Disney Company; Batman Begins production company Warner Bros.; Toy Story production company Pixar"
+  },
+  "owned by": {
+    "description": "\"owned by\" refers to the object that is the owner of the subject. The subject is a item and object is a person or organization or group.",
+    "examples": "Choupette owned by Karl Lagerfeld; Eiffel Tower owned by Paris; Wiktionary owned by Wikimedia Foundation; Sch\\u00F6nbrunn Palace owned by Leopold I, Holy Roman Emperor"
+  },
+  "parent organization": {
+    "description": "\"parent organization\" refers to parent organization of an organization, opposite of subsidiaries (P355).",
+    "examples": "Airbus parent organization Airbus Group; Ministry of Civil Affairs parent organization State Council of the People's Republic of China"
+  },
+  "subsidiary": {
+    "description": "\"subsidiary\" refers to subsidiary of a company or organization; generally a fully owned separate corporation. Compare with \\\"business division\\\" (P199). Opposite of parent organization (P749)..",
+    "examples": "The Walt Disney Company subsidiary Walt Disney Studios Motion Pictures; The Walt Disney Company subsidiary Walt Disney Animation Studios; Microsoft subsidiary Skype Technologies; Toons Mag subsidiary Periodical"
+  },
+  "military branch": {
+    "description": "\"military branch\" refers to branch to which this military unit, award, office, or person belongs, e.g. Royal Navy.",
+    "examples": "Prince Harry, Duke of Sussex military branch British Army; Vladimir Putin military branch KGB; Ronald Reagan military branch United States Army; Royal Gurkha Rifles military branch British Army"
+  },
+  "founded by": {
+    "description": "\"founded by\" refers to founder or co-founder of this organization, religion or place.",
+    "examples": "Apple Inc. founded by Steve Jobs; Apple Inc. founded by Steve Wozniak; Apple Inc. founded by Ronald Wayne; Wikimedia Foundation founded by Jimmy Wales"
+  },
+  "present in work": {
+    "description": "\"present in work\" refers to this (fictional or fictionalized) entity or person appears in that work as part of the narration (use P2860 for works citing other works, P361/P1433 for works being part of other works, P1343 for entities described in non-fictional accounts).",
+    "examples": "Irina Nikolayevna Arkadina present in work The Seagull; Frodo Baggins present in work The Lord of the Rings"
+  },
+  "characters": {
+    "description": "\"characters\" refers to characters which appear in this item (like plays, operas, operettas, books, comics, films, TV series, video games).",
+    "examples": "Les Mis\\u00E9rables characters Cosette; The Lord of the Rings characters Gandalf"
+  },
+  "languages spoken, written or signed": {
+    "description": "\"languages spoken, written or signed\" refers to language(s) that a person or a people speaks, writes or signs, including the native language(s).",
+    "examples": "Confucius languages spoken, written or signed Old Chinese; Margrethe II of Denmark languages spoken, written or signed Danish; Margrethe II of Denmark languages spoken, written or signed English; Margrethe II of Denmark languages spoken, written or signed French; Margrethe II of Denmark languages spoken, written or signed Swedish; Margrethe II of Denmark languages spoken, written or signed German; Margrethe II of Denmark languages spoken, written or signed Faroese; Margrethe II of Denmark languages spoken, written or signed Ukrainian; Koko languages spoken, written or signed American Sign Language"
+  },
+  "official language": {
+    "description": "\"official language\" refers to language designated as official by this item.",
+    "examples": "Hawaii official language Hawaiian; Hawaii official language English; France official language French; Austria official language German; Kazakhstan official language Russian"
+  },
+  "operator": {
+    "description": "\"operator\" refers to person, profession, or organization that operates the equipment, facility, or service.",
+    "examples": "Yamanote Line operator East Japan Railway Company; Embassy of the United Kingdom, Washington, D.C. operator United Kingdom; Paris-Charles de Gaulle Airport operator Groupe ADP; Embassy of the People's Republic of China in Washington, D.C. operator People's Republic of China"
+  },
+  "record label": {
+    "description": "\"record label\" refers to brand and trademark associated with the marketing of subject music recordings and music videos.",
+    "examples": "A Night at the Opera record label EMI; Daft Punk record label Columbia Records; Lorde record label Universal Music Group"
+  },
+  "replaced by": {
+    "description": "\"replaced by\" refers to other person or item which continues the item by replacing it in its role. Use P156 (followed by) if the item is not replaced (e.g. books in a series), nor identical, but adds to the series without dropping the role of this item in that series.",
+    "examples": "Ptolemy XII Auletes replaced by Cleopatra; Canada East replaced by Quebec; George W. Bush replaced by Barack Obama"
+  },
+  "replaces": {
+    "description": "\"replaces\" refers to person, state or item replaced. Use \\\"structure replaces\\\" (P1398) for structures. Use \\\"follows\\\" (P155) if the previous item was not replaced or predecessor and successor are identical.",
+    "examples": "Barack Obama replaces George W. Bush; United Kingdom replaces United Kingdom of Great Britain and Ireland"
+  },
+  "end time": {
+    "description": "\"end time\" refers to time an item ceases to exist or a statement stops being valid.",
+    "examples": ""
+  },
+  "ethnic group": {
+    "description": "\"ethnic group\" refers to subject's ethnicity (consensus is that a VERY high standard of proof is needed for this field to be used. In general this means 1) the subject claims it themself, or 2) it is widely agreed on by scholars, or 3) is fictional and portrayed as such).",
+    "examples": "Karl Marx ethnic group Jewish people; Yasser Arafat ethnic group Arabs; Nikita Khrushchev ethnic group Ukrainians; Huang Xianfan ethnic group Zhuang people; Mohandas Karamchand Gandhi ethnic group Gujarati people"
+  },
+  "separated from": {
+    "description": "\"separated from\" refers to subject was founded or started by separating from identified object.",
+    "examples": "Presbyterian Church in America separated from Presbyterian Church in the United States; Article 1 \\u2013 Democratic and Progressive Movement separated from Democratic Party"
+  },
+  "platform": {
+    "description": "\"platform\" refers to platform for which a work was developed or released, or the specific platform version of a software product.",
+    "examples": "Minecraft platform Xbox 360; Grand Theft Auto IV platform PlayStation 3; Counter-Strike platform Xbox"
+  },
+  "genre": {
+    "description": "\"genre\" refers to creative work's genre or an artist's field of work (P101). Use main subject (P921) to relate creative works to their topic.",
+    "examples": "Winter in Wartime genre war film; Grand Theft Auto V genre action-adventure game; Basshunter genre Eurodance; Basshunter genre trance; Basshunter genre electronic dance music; Basshunter genre electro; Basshunter genre pop music; Basshunter genre techno; Ode to a Nightingale genre ode"
+  },
+  "series": {
+    "description": "\"series\" refers to series which contains the subject.",
+    "examples": ""
+  },
+  "original language of work": {
+    "description": "\"original language of work\" refers to language in which a film or a performance work was originally created. Deprecated for written works and songs; use P407 (\"language of work or name\") instead..",
+    "examples": ""
+  },
+  "dissolved, abolished or demolished": {
+    "description": "\"dissolved, abolished or demolished\" refers to point in time at which the subject (organisation, building) ceased to exist;  see \"date of official closure\" (P3999) for closing a facility, \"service retirement\" (P730) for retiring equipment,  \"discontinued date\" (P2669) for stopping a product.",
+    "examples": ""
+  },
+  "territory claimed by": {
+    "description": "\"territory claimed by\" refers to administrative divisions that claim control of a given area.",
+    "examples": "Senkaku Islands territory claimed by Toucheng; Tonoshiro territory claimed by Japan; Golan Heights territory claimed by Israel; Golan Heights territory claimed by Syria"
+  },
+  "original network": {
+    "description": "\"original network\" refers to network(s) or service(s) that originally broadcasted a radio or television program.",
+    "examples": ""
+  },
+  "product or material produced": {
+    "description": "\"product or material produced\" refers to material or product produced by a government agency, business, industry, facility, or process.",
+    "examples": "Jaduguda Uranium Mine product or material produced uranium; Groningen gas field product or material produced natural gas; Airbus product or material produced Airbus A320 family"
+  },
+  "sister city": {
+    "description": "\"sister city\" refers to twin towns, sister cities, twinned municipalities and other localities that have a partnership or cooperative agreement, either legally or informally acknowledged by their governments.",
+    "examples": ""
+  },
+  "influenced by": {
+    "description": "\"influenced by\" refers to this person, idea, etc. is informed by that other person, idea, etc., e.g. \\u201CHeidegger was influenced by Aristotle\\u201D.",
+    "examples": "Sergei Korolev influenced by Konstantin Eduardovich Tsiolkovskii; Sergei Korolev influenced by Sergei Isayevich Utochkin"
+  },
+  "unemployment rate": {
+    "description": "\"unemployment rate\" refers to portion of a workforce population that is not employed.",
+    "examples": ""
+  }
+}

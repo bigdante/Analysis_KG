@@ -1,0 +1,2319 @@
+{
+  "date of birth": {
+    "description": "\"date of birth\" refers to the date on which the subject was born. The object should be a specific time.",
+    "examples": [
+      {
+        "sentence": "Albert Einstein, one of the greatest physicists in history, was born on March 14, 1879. His groundbreaking theories revolutionized our understanding of the universe.",
+        "entity": [
+          "Albert Einstein",
+          "March 14, 1879"
+        ],
+        "relation": [
+          [
+            "Albert Einstein",
+            "date of birth",
+            "March 14, 1879"
+          ]
+        ]
+      },
+      {
+        "sentence": "Marilyn Monroe, a legendary actress and model, was born on June 1, 1926. Her captivating beauty and talent made her an icon of Hollywood's Golden Age.",
+        "entity": [
+          "Marilyn Monroe",
+          "June 1, 1926"
+        ],
+        "relation": [
+          [
+            "Marilyn Monroe",
+            "date of birth",
+            "June 1, 1926"
+          ]
+        ]
+      }
+    ]
+  },
+  "place of birth": {
+    "description": "\"place of birth\" refers to the most specific known location where a person, animal, or fictional character, which is the subject, was born. The object can be a city instead of a country, or even a hospital instead of a city.",
+    "examples": [
+      {
+        "sentence": "Julius Caesar, the renowned Roman statesman and general, was born in Rome. He played a significant role in the downfall of the Roman Republic and the rise of the Roman Empire.",
+        "entity": [
+          "Julius Caesar",
+          "Rome"
+        ],
+        "relation": [
+          [
+            "Julius Caesar",
+            "place of birth",
+            "Rome"
+          ]
+        ]
+      },
+      {
+        "sentence": "Elena Kagan, an Associate Justice of the Supreme Court of the United States, was born in New York City. She was nominated by President Barack Obama and confirmed by the Senate in 2010.",
+        "entity": [
+          "Elena Kagan",
+          "New York City"
+        ],
+        "relation": [
+          [
+            "Elena Kagan",
+            "place of birth",
+            "New York City"
+          ]
+        ]
+      },
+      {
+        "sentence": "Jimmy Carter, the 39th President of the United States, was born in the Lillian G. Carter Nursing Center. He served as the President from 1977 to 1981 and received the Nobel Peace Prize in 2002.",
+        "entity": [
+          "Jimmy Carter",
+          "Lillian G. Carter Nursing Center"
+        ],
+        "relation": [
+          [
+            "Jimmy Carter",
+            "place of birth",
+            "Lillian G. Carter Nursing Center"
+          ]
+        ]
+      },
+      {
+        "sentence": "Gioachino Rossini, a famous Italian composer, was born in Casa Rossini. He composed numerous operas, including 'The Barber of Seville' and 'William Tell'.",
+        "entity": [
+          "Gioachino Rossini",
+          "Casa Rossini"
+        ],
+        "relation": [
+          [
+            "Gioachino Rossini",
+            "place of birth",
+            "Casa Rossini"
+          ]
+        ]
+      }
+    ]
+  },
+  "date of death": {
+    "description": "\"date of death\" refers to the specific date when the subject died.",
+    "examples": [
+      {
+        "sentence": "Leonardo da Vinci, the renowned artist and polymath, had his date of death on May 2, 1519. His works, such as the Mona Lisa and The Last Supper, continue to be admired worldwide.",
+        "entity": [
+          "Leonardo da Vinci",
+          "May 2, 1519"
+        ],
+        "relation": [
+          [
+            "Leonardo da Vinci",
+            "date of death",
+            "May 2, 1519"
+          ]
+        ]
+      },
+      {
+        "sentence": "Albert Einstein, the famous physicist, passed away on April 18, 1955. His contributions to the theory of relativity and quantum mechanics revolutionized the field of physics.",
+        "entity": [
+          "Albert Einstein",
+          "April 18, 1955"
+        ],
+        "relation": [
+          [
+            "Albert Einstein",
+            "date of death",
+            "April 18, 1955"
+          ]
+        ]
+      },
+      {
+        "sentence": "Amelia Earhart, the pioneering aviator, disappeared on July 2, 1937, and her date of death remains unknown. She made significant contributions to the field of aviation, breaking barriers for women in the field.",
+        "entity": [
+          "Amelia Earhart",
+          "July 2, 1937"
+        ],
+        "relation": [
+          [
+            "Amelia Earhart",
+            "date of death",
+            "July 2, 1937"
+          ]
+        ]
+      }
+    ]
+  },
+  "place of death": {
+    "description": "\"place of death\" refers to the most specific known location where a person, animal, or fictional character died (e.g. city instead of country, or hospital instead of city).",
+    "examples": [
+      {
+        "sentence": "René Descartes passed away in Stockholm.",
+        "entity": [
+          "René Descartes",
+          "Stockholm"
+        ],
+        "relation": [
+          [
+            "René Descartes",
+            "place of death",
+            "Stockholm"
+          ]
+        ]
+      },
+      {
+        "sentence": "Sung Jae-gi breathed his last at Mapo Bridge.",
+        "entity": [
+          "Sung Jae-gi",
+          "Mapo Bridge"
+        ],
+        "relation": [
+          [
+            "Sung Jae-gi",
+            "place of death",
+            "Mapo Bridge"
+          ]
+        ]
+      },
+      {
+        "sentence": "Richard Dürr departed from this world at Lausanne University Hospital.",
+        "entity": [
+          "Richard Dürr",
+          "Lausanne University Hospital"
+        ],
+        "relation": [
+          [
+            "Richard Dürr",
+            "place of death",
+            "Lausanne University Hospital"
+          ]
+        ]
+      },
+      {
+        "sentence": "Captain Nemo met his demise in the vast expanse of the Pacific Ocean.",
+        "entity": [
+          "Captain Nemo",
+          "the Pacific Ocean"
+        ],
+        "relation": [
+          [
+            "Captain Nemo",
+            "place of death",
+            "the Pacific Ocean"
+          ]
+        ]
+      }
+    ]
+  },
+  "father": {
+    "description": "\"father\" refers to the male parent of the subject.",
+    "examples": [
+      {
+        "sentence": "Jane Fonda's father is Henry Fonda.",
+        "entity": [
+          "Jane Fonda",
+          "Henry Fonda"
+        ],
+        "relation": [
+          [
+            "Jane Fonda",
+            "father",
+            "Henry Fonda"
+          ]
+        ]
+      },
+      {
+        "sentence": "Sveinn Björnsson's father is Björn Jónsson.",
+        "entity": [
+          "Sveinn Björnsson",
+          "Björn Jónsson"
+        ],
+        "relation": [
+          [
+            "Sveinn Björnsson",
+            "father",
+            "Björn Jónsson"
+          ]
+        ]
+      }
+    ]
+  },
+  "mother": {
+    "description": "\"mother\" refers to the female parent of the subject.",
+    "examples": [
+      {
+        "sentence": "Elizabeth II is the mother of Charles, Prince of Wales.",
+        "entity": [
+          "Elizabeth II",
+          "Charles, Prince of Wales"
+        ],
+        "relation": [
+          [
+            "Elizabeth II",
+            "mother",
+            "Charles, Prince of Wales"
+          ]
+        ]
+      },
+      {
+        "sentence": "Virgin Mary is the mother of Jesus.",
+        "entity": [
+          "Virgin Mary",
+          "Jesus"
+        ],
+        "relation": [
+          [
+            "Virgin Mary",
+            "mother",
+            "Jesus"
+          ]
+        ]
+      },
+      {
+        "sentence": "Hera is the mother of Ares.",
+        "entity": [
+          "Hera",
+          "Ares"
+        ],
+        "relation": [
+          [
+            "Hera",
+            "mother",
+            "Ares"
+          ]
+        ]
+      }
+    ]
+  },
+  "child": {
+    "description": "\"child\" refers to the subject has the object as their child.",
+    "examples": [
+      {
+        "sentence": "Kirk Douglas is the father of Michael Douglas.",
+        "entity": [
+          "Kirk Douglas",
+          "Michael Douglas"
+        ],
+        "relation": [
+          [
+            "Kirk Douglas",
+            "child",
+            "Michael Douglas"
+          ]
+        ]
+      },
+      {
+        "sentence": "Virgin Mary is the mother of Jesus.",
+        "entity": [
+          "Virgin Mary",
+          "Jesus"
+        ],
+        "relation": [
+          [
+            "Virgin Mary",
+            "child",
+            "Jesus"
+          ]
+        ]
+      }
+    ]
+  },
+  "spouse": {
+    "description": "\"spouse\" refers to the subject who is married to the object (husband, wife, partner, etc.).",
+    "examples": [
+      {
+        "sentence": "Pierre Curie was married to Marie Curie.",
+        "entity": [
+          "Pierre Curie",
+          "Marie Curie"
+        ],
+        "relation": [
+          [
+            "Pierre Curie",
+            "spouse",
+            "Marie Curie"
+          ]
+        ]
+      },
+      {
+        "sentence": "Marie Antoinette was the wife of Louis XVI of France.",
+        "entity": [
+          "Marie Antoinette",
+          "Louis XVI of France"
+        ],
+        "relation": [
+          [
+            "Marie Antoinette",
+            "spouse",
+            "Louis XVI of France"
+          ]
+        ]
+      }
+    ]
+  },
+  "sibling": {
+    "description": "\"sibling\" refers to individuals who share the same parents (brother, sister, etc.).",
+    "examples": [
+      {
+        "sentence": "Lisa Simpson is the sibling of Bart Simpson. They both share the same parents, Homer and Marge Simpson.",
+        "entity": [
+          "Lisa Simpson",
+          "Bart Simpson",
+          "Homer Simpson",
+          "Marge Simpson"
+        ],
+        "relation": [
+          [
+            "Lisa Simpson",
+            "sibling",
+            "Bart Simpson"
+          ]
+        ]
+      },
+      {
+        "sentence": "Jan Martel has a sibling named Joël Martel. They are brothers and share the same parents.",
+        "entity": [
+          "Jan Martel",
+          "Joël Martel"
+        ],
+        "relation": [
+          [
+            "Jan Martel",
+            "sibling",
+            "Joël Martel"
+          ]
+        ]
+      },
+      {
+        "sentence": "Joël Martel has a sibling named Jan Martel. They are brothers and share the same parents.",
+        "entity": [
+          "Joël Martel",
+          "Jan Martel"
+        ],
+        "relation": [
+          [
+            "Joël Martel",
+            "sibling",
+            "Jan Martel"
+          ]
+        ]
+      },
+      {
+        "sentence": "Elizabeth I of England had a sibling named Mary I of England. They were sisters and shared the same parents, Henry VIII and Anne Boleyn.",
+        "entity": [
+          "Elizabeth I of England",
+          "Mary I of England",
+          "Henry VIII",
+          "Anne Boleyn"
+        ],
+        "relation": [
+          [
+            "Elizabeth I of England",
+            "sibling",
+            "Mary I of England"
+          ]
+        ]
+      }
+    ]
+  },
+  "educated at": {
+    "description": "\"educated at\" refers to the educational institution that the subject attended and be a student. It represents the educational background of the subject. The subject should be the name of a person, and the object should be a school or educational institution, not a place.",
+    "examples": [
+      {
+        "sentence": "Bertrand Russell, the influential philosopher and logician, received his education at the prestigious University of Cambridge. His studies at Cambridge greatly influenced his groundbreaking work in logic and philosophy of mathematics.",
+        "entity": [
+          "Bertrand Russell",
+          "University of Cambridge"
+        ],
+        "relation": [
+          [
+            "Bertrand Russell",
+            "educated at",
+            "University of Cambridge"
+          ]
+        ]
+      },
+      {
+        "sentence": "Stephen Hawking, the brilliant theoretical physicist and cosmologist, pursued his education at the esteemed University of Oxford. His time at Oxford played a crucial role in shaping his remarkable contributions to our understanding of black holes and the universe.",
+        "entity": [
+          "Stephen Hawking",
+          "University of Oxford"
+        ],
+        "relation": [
+          [
+            "Stephen Hawking",
+            "educated at",
+            "University of Oxford"
+          ]
+        ]
+      },
+      {
+        "sentence": "Henry David Thoreau, the renowned American essayist and transcendentalist philosopher, obtained his education at Harvard University. His experiences at Harvard laid the foundation for his profound reflections on nature, individualism, and civil disobedience.",
+        "entity": [
+          "Henry David Thoreau",
+          "Harvard University"
+        ],
+        "relation": [
+          [
+            "Henry David Thoreau",
+            "educated at",
+            "Harvard University"
+          ]
+        ]
+      }
+    ]
+  },
+  "notable work": {
+    "description": "\"notable work\" refers to a significant object, such as a scientific, artistic, literary, or other noteworthy creation associated with the subject. It is used to emphasize a specific piece of subject.",
+    "examples": [
+      {
+        "sentence": "One of William Shakespeare's most notable works is the play Hamlet, which explores themes of revenge and tragedy.",
+        "entity": [
+          "William Shakespeare",
+          "Hamlet"
+        ],
+        "relation": [
+          [
+            "William Shakespeare",
+            "notable work",
+            "Hamlet"
+          ]
+        ]
+      },
+      {
+        "sentence": "J. K. Rowling gained worldwide recognition for her notable work, the Harry Potter book series, which captivated millions of readers around the world.",
+        "entity": [
+          "J. K. Rowling",
+          "Harry Potter book series"
+        ],
+        "relation": [
+          [
+            "J. K. Rowling",
+            "notable work",
+            "Harry Potter book series"
+          ]
+        ]
+      },
+      {
+        "sentence": "Leonardo da Vinci's Mona Lisa is widely regarded as one of the most famous and notable works of art in history, showcasing his mastery of technique and enigmatic style.",
+        "entity": [
+          "Leonardo da Vinci",
+          "Mona Lisa"
+        ],
+        "relation": [
+          [
+            "Leonardo da Vinci",
+            "notable work",
+            "Mona Lisa"
+          ]
+        ]
+      }
+    ]
+  },
+  "award received": {
+    "description": "\"award received\" refers to the award or recognition received by a person, organization, or creative work.",
+    "examples": [
+      {
+        "sentence": "Nelson Mandela received the Nobel Peace Prize.",
+        "entity": [
+          "Nelson Mandela",
+          "Nobel Peace Prize"
+        ],
+        "relation": [
+          [
+            "Nelson Mandela",
+            "award received",
+            "Nobel Peace Prize"
+          ]
+        ]
+      },
+      {
+        "sentence": "Jane Austen received the British Library Award for Literary Excellence.",
+        "entity": [
+          "Jane Austen",
+          "British Library Award for Literary Excellence"
+        ],
+        "relation": [
+          [
+            "Jane Austen",
+            "award received",
+            "British Library Award for Literary Excellence"
+          ]
+        ]
+      }
+    ]
+  },
+  "participant of": {
+    "description": "\"participant of\" refers to an event in which a person, group or organization was or is a participant. It represents the involvement of the subject in the event and the object is the even.",
+    "examples": [
+      {
+        "sentence": "Serena Williams, the legendary tennis player, was a participant of the Wimbledon Championships. She has won multiple Wimbledon titles throughout her career.",
+        "entity": [
+          "Serena Williams",
+          "Wimbledon Championships"
+        ],
+        "relation": [
+          [
+            "Serena Williams",
+            "participant of",
+            "Wimbledon Championships"
+          ]
+        ]
+      },
+      {
+        "sentence": "Apple Inc., the technology company, was a participant of the Consumer Electronics Show (CES). They showcased their latest products and innovations at the event.",
+        "entity": [
+          "Apple Inc.",
+          "Consumer Electronics Show (CES)"
+        ],
+        "relation": [
+          [
+            "Apple Inc.",
+            "participant of",
+            "Consumer Electronics Show (CES)"
+          ]
+        ]
+      }
+    ]
+  },
+  "participant": {
+    "description": "\"participant\" refers to person, group of people or organization (object) that actively takes/took part in an event or process (subject).  Preferably qualify with \\\"object has role\\\" (P3831). Use P1923 for participants that are teams..",
+    "examples": "Saudi Arabian-led intervention in Yemen participant Saudi Arabia; 2010 Wimbledon Championships participant Roger Federer; First Continental Congress participant George Washington; Hambach Festival participant Ludwig B\\u00F6rne"
+  },
+  "country of citizenship": {
+    "description": "\"country of citizenship\" refers to the country that recognizes an individual as its citizen. The individual is the subject and the country is the object.",
+    "examples": [
+      {
+        "sentence": "Nelson Mandela, a prominent activist and politician, held citizenship in South Africa. He fought against apartheid and became the first black president of South Africa.",
+        "entity": [
+          "Nelson Mandela",
+          "South Africa"
+        ],
+        "relation": [
+          [
+            "Nelson Mandela",
+            "country of citizenship",
+            "South Africa"
+          ]
+        ]
+      },
+      {
+        "sentence": "Mohandas Karamchand Gandhi, widely known as Mahatma Gandhi, was a citizen of British India. He led the non-violent civil disobedience movement and played a key role in India's independence from British rule.",
+        "entity": [
+          "Mohandas Karamchand Gandhi",
+          "British India"
+        ],
+        "relation": [
+          [
+            "Mohandas Karamchand Gandhi",
+            "country of citizenship",
+            "British India"
+          ]
+        ]
+      }
+    ]
+  },
+  "religion": {
+    "description": "\"religion\" refers to the religion of a person, organization, or associated with this subject.",
+    "examples": [
+      {
+        "sentence": "Narendra Modi practices Hinduism.",
+        "entity": [
+          "Narendra Modi"
+        ],
+        "relation": [
+          [
+            "Narendra Modi",
+            "religion",
+            "Hinduism"
+          ]
+        ]
+      }
+    ]
+  },
+  "belongs to ethnic group": {
+    "description": "\"belongs to ethnic group\" refers to the relationship between the subject and their ethnicity. The usage of this field requires a very high standard of proof, which can be established through the subject's own claim, wide agreement among scholars, or portrayal in fictional works.",
+    "examples": "Karl Marx ethnic group Jewish people; Yasser Arafat ethnic group Arabs; Nikita Khrushchev ethnic group Ukrainians; Huang Xianfan ethnic group Zhuang people; Mohandas Karamchand Gandhi ethnic group Gujarati people"
+  },
+  "ethnic group": {
+    "description": "\"ethnic group\" refers to subject's ethnicity (consensus is that a VERY high standard of proof is needed for this field to be used. In general this means 1) the subject claims it themself, or 2) it is widely agreed on by scholars, or 3) is fictional and portrayed as such).",
+    "examples": "Karl Marx ethnic group Jewish people; Yasser Arafat ethnic group Arabs; Nikita Khrushchev ethnic group Ukrainians; Huang Xianfan ethnic group Zhuang people; Mohandas Karamchand Gandhi ethnic group Gujarati people"
+  },
+  "employer of": {
+    "description": "\"employer of\" refers to the person or organization for which the subject works or worked.",
+    "examples": [
+      {
+        "sentence": "Albert Verlinde works for Stage Entertainment Germany.",
+        "entity": [
+          "Albert Verlinde",
+          "Stage Entertainment Germany"
+        ],
+        "relation": [
+          [
+            "Albert Verlinde",
+            "employer",
+            "Stage Entertainment Germany"
+          ]
+        ]
+      },
+      {
+        "sentence": "Neil Armstrong worked for National Aeronautics and Space Administration.",
+        "entity": [
+          "Neil Armstrong",
+          "National Aeronautics and Space Administration"
+        ],
+        "relation": [
+          [
+            "Neil Armstrong",
+            "employer",
+            "National Aeronautics and Space Administration"
+          ]
+        ]
+      }
+    ]
+  },
+  "employer": {
+    "description": "\"employer\" refers to person or organization for which the subject works or worked.",
+    "examples": "Albert Verlinde employer Stage Entertainment Germany; Neil Armstrong employer National Aeronautics and Space Administration"
+  },
+  "plays in league": {
+    "description": "\"plays in league\" refers to the league in which a team or player participates or has participated.",
+    "examples": ""
+  },
+  "league": {
+    "description": "\"league\" refers to league in which team or player plays or has played in.",
+    "examples": ""
+  },
+  "residence": {
+    "description": "\"residence\" refers to the place where the subject is or has been a resident.",
+    "examples": [
+      {
+        "sentence": "Kim Dotcom resides in Queenstown.",
+        "entity": [
+          "Kim Dotcom",
+          "Queenstown"
+        ],
+        "relation": [
+          [
+            "Kim Dotcom",
+            "residence",
+            "Queenstown"
+          ]
+        ]
+      },
+      {
+        "sentence": "Eliza Bunton Johnson lived in Johnson Cabin.",
+        "entity": [
+          "Eliza Bunton Johnson",
+          "Johnson Cabin"
+        ],
+        "relation": [
+          [
+            "Eliza Bunton Johnson",
+            "residence",
+            "Johnson Cabin"
+          ]
+        ]
+      }
+    ]
+  },
+  "member of": {
+    "description": "\"member of\" refers to organization, club or musical group, ethnic or social groups, political groups, to which the subject belongs, or been a member or otherwise affiliated.",
+    "examples": [
+      {
+        "sentence": "Iring Fetscher is affiliated with the PEN Centre Germany.",
+        "entity": [
+          "Iring Fetscher",
+          "PEN Centre Germany"
+        ],
+        "relation": [
+          [
+            "Iring Fetscher",
+            "member of",
+            "PEN Centre Germany"
+          ]
+        ]
+      },
+      {
+        "sentence": "Iron Man is part of the superhero team known as the Avengers.",
+        "entity": [
+          "Iron Man",
+          "Avengers"
+        ],
+        "relation": [
+          [
+            "Iron Man",
+            "member of",
+            "Avengers"
+          ]
+        ]
+      },
+      {
+        "sentence": "Diana Ross was associated with the American singing group called The Supremes.",
+        "entity": [
+          "Diana Ross",
+          "The Supremes"
+        ],
+        "relation": [
+          [
+            "Diana Ross",
+            "member of",
+            "The Supremes"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Singapore MRT belongs to the Community of Metros.",
+        "entity": [
+          "Singapore MRT",
+          "Community of Metros"
+        ],
+        "relation": [
+          [
+            "Singapore MRT",
+            "member of",
+            "Community of Metros"
+          ]
+        ]
+      }
+    ]
+  },
+  "member of political party": {
+    "description": "\"member of political party\" refers to the political party of which this politician is or has been a member or otherwise affiliated.",
+    "examples": "Eleanor Roosevelt member of political party Democratic Party; Leonid Brezhnev member of political party Communist Party of the Soviet Union; Deng Xiaoping member of political party Communist Party of China"
+  },
+  "member of sports team": {
+    "description": "\"member of sports team\" refers to sports teams or clubs that the subject represents or represented.",
+    "examples": "Diego Maradona member of sports team FC Barcelona; Marcel Kittel member of sports team Team DSM"
+  },
+  "position held": {
+    "description": "\"position held\" refers to the current or former position or public office held by the subject.",
+    "examples": [
+      {
+        "sentence": "George Washington held the position of President of the United States.",
+        "entity": [
+          "George Washington",
+          "President of the United States"
+        ],
+        "relation": [
+          [
+            "George Washington",
+            "position held",
+            "President of the United States"
+          ]
+        ]
+      },
+      {
+        "sentence": "Frederick II, Holy Roman Emperor, held the position of Holy Roman Emperor.",
+        "entity": [
+          "Frederick II, Holy Roman Emperor",
+          "Holy Roman Emperor"
+        ],
+        "relation": [
+          [
+            "Frederick II, Holy Roman Emperor",
+            "position held",
+            "Holy Roman Emperor"
+          ]
+        ]
+      },
+      {
+        "sentence": "Barack Obama held the position of United States senator.",
+        "entity": [
+          "Barack Obama",
+          "United States senator"
+        ],
+        "relation": [
+          [
+            "Barack Obama",
+            "position held",
+            "United States senator"
+          ]
+        ]
+      }
+    ]
+  },
+  "participated in conflict": {
+    "description": "\"participated in conflict\" refers to battles, wars, or other military engagements in which the person or item participated. The subject is the person or item, and the object is the specific conflict.",
+    "examples": [
+      {
+        "sentence": "Michel Ney participated in the Battle of Borodino. He was a French military commander during the Napoleonic Wars.",
+        "entity": [
+          "Michel Ney",
+          "Battle of Borodino"
+        ],
+        "relation": [
+          [
+            "Michel Ney",
+            "conflict",
+            "Battle of Borodino"
+          ]
+        ]
+      },
+      {
+        "sentence": "The ship Léopard took part in the Battle of La Réunion. It was a naval conflict during the Napoleonic Wars.",
+        "entity": [
+          "Léopard",
+          "Battle of La Réunion"
+        ],
+        "relation": [
+          [
+            "Léopard",
+            "conflict",
+            "Battle of La Réunion"
+          ]
+        ]
+      },
+      {
+        "sentence": "Crixus participated in the Third Servile War. He was a gladiator who rebelled against the Roman Republic.",
+        "entity": [
+          "Crixus",
+          "Third Servile War"
+        ],
+        "relation": [
+          [
+            "Crixus",
+            "conflict",
+            "Third Servile War"
+          ]
+        ]
+      }
+    ]
+  },
+  "conflict": {
+    "description": "\"conflict\" refers to battles, wars or other military engagements in which the person or item participated.",
+    "examples": "Michel Ney conflict Battle of Borodino; L\\u00E9opard conflict Battle of La R\\u00E9union; Crixus conflict Third Servile War"
+  },
+  "work location": {
+    "description": "\"work location\" refers to the location where the subject, which can be a person or organization, actively participates in employment, business, or other work.",
+    "examples": [
+      {
+        "sentence": "Filippo Brunelleschi, the famous Italian architect, worked in Florence during the Renaissance.",
+        "entity": [
+          "Filippo Brunelleschi",
+          "Florence",
+          "Renaissance"
+        ],
+        "relation": [
+          [
+            "Filippo Brunelleschi",
+            "work location",
+            "Florence"
+          ]
+        ]
+      },
+      {
+        "sentence": "Joseph Stalin, the former leader of the Soviet Union, had his work location in both Saint Petersburg and Moscow.",
+        "entity": [
+          "Joseph Stalin",
+          "Saint Petersburg",
+          "Moscow",
+          "Soviet Union"
+        ],
+        "relation": [
+          [
+            "Joseph Stalin",
+            "work location",
+            "Saint Petersburg"
+          ],
+          [
+            "Joseph Stalin",
+            "work location",
+            "Moscow"
+          ]
+        ]
+      }
+    ]
+  },
+  "has cast member": {
+    "description": "\"has cast member\" refers to the subject work and the individuals (object) who are part of its cast. The subject work can be a movie, play, TV show, or any other production involving actors or performers. This relation is used to identify and connect the specific individuals who portray characters or perform roles within the mentioned work.",
+    "examples": [
+      {
+        "sentence": "Tom Hanks is a cast member of the movie Cast Away, where he portrays the lead role of Chuck Noland.",
+        "entity": [
+          "Tom Hanks",
+          "Cast Away",
+          "Chuck Noland"
+        ],
+        "relation": [
+          [
+            "Cast Away",
+            "cast member",
+            "Tom Hanks"
+          ]
+        ]
+      },
+      {
+        "sentence": "Leonardo DiCaprio and Kate Winslet are cast members of the film Titanic, where they portray the main characters Jack Dawson and Rose DeWitt Bukater, respectively.",
+        "entity": [
+          "Leonardo DiCaprio",
+          "Kate Winslet",
+          "Titanic",
+          "Jack Dawson",
+          "Rose DeWitt Bukater"
+        ],
+        "relation": [
+          [
+            "Titanic",
+            "cast member",
+            "Leonardo DiCaprio"
+          ],
+          [
+            "Titanic",
+            "cast member",
+            "Kate Winslet"
+          ]
+        ]
+      },
+      {
+        "sentence": "Josh Gad, Andrew Rannells, Rory O'Malley, and Nikki M. James are cast members of the Original Broadway Cast Recording of The Book of Mormon, where they contribute their performances to various roles in the musical.",
+        "entity": [
+          "Josh Gad",
+          "Andrew Rannells",
+          "Rory O'Malley",
+          "Nikki M. James",
+          "The Book of Mormon",
+          "musical"
+        ],
+        "relation": [
+          [
+            "The Book of Mormon",
+            "cast member",
+            "Josh Gad"
+          ],
+          [
+            "The Book of Mormon",
+            "cast member",
+            "Andrew Rannells"
+          ],
+          [
+            "The Book of Mormon",
+            "cast member",
+            "Rory O'Malley"
+          ],
+          [
+            "The Book of Mormon",
+            "cast member",
+            "Nikki M. James"
+          ]
+        ]
+      }
+    ]
+  },
+  "cast member": {
+    "description": "\"cast member\" refers to actor in the subject production [use \\\"character role\\\" (P453) and/or \\\"name of the character role\\\" (P4633) as qualifiers] [use \\\"voice actor\\\" (P725) for voice-only role].",
+    "examples": "Cast Away cast member Tom Hanks; Cast Away cast member Helen Hunt; Cast Away cast member Paul Sanchez; Titanic cast member Leonardo DiCaprio; Titanic cast member Kate Winslet; The Book of Mormon: Original Broadway Cast Recording cast member Josh Gad; The Book of Mormon: Original Broadway Cast Recording cast member Andrew Rannells; The Book of Mormon: Original Broadway Cast Recording cast member Rory O'Malley; The Book of Mormon: Original Broadway Cast Recording cast member Nikki M. James; The Book of Mormon: Original Broadway Cast Recording cast member Justin Bohon; The Book of Mormon: Original Broadway Cast Recording cast member Kevin Duda; The Book of Mormon: Original Broadway Cast Recording cast member Michael Potts; The Book of Mormon: Original Broadway Cast Recording cast member Lewis Cleale; The Book of Mormon: Original Broadway Cast Recording cast member Asmeret Ghebremichael; The Book of Mormon: Original Broadway Cast Recording cast member Michael James Scott"
+  },
+  "location in": {
+    "description": "\"location in\" refers to the relationship between a subject (e.g., organizations, events, creative works, food, products, locations) and the country, administrative territorial entity, or specific location (object) it is associated with. It is not used for individual people. It indicates the origin, occurrence, or affiliation of the subject with the corresponding geographic entity, including specific locations.",
+    "examples": []
+  },
+  "country": {
+    "description": "\"country\" refers to the subject and the independent nation it is associated with. The subject can be various entities such as organizations, creative works, food, products, and similar things. It is not used for individual people. This relation is used to identify the origin or source of the mentioned entities.",
+    "examples": [
+      {
+        "sentence": "The Wusung Radio Tower is located in the country of the People's Republic of China. It is a prominent landmark in Shanghai.",
+        "entity": [
+          "Wusung Radio Tower",
+          "People's Republic of China",
+          "Shanghai"
+        ],
+        "relation": [
+          [
+            "Wusung Radio Tower",
+            "country",
+            "People's Republic of China"
+          ]
+        ]
+      },
+      {
+        "sentence": "Mount Everest, the highest peak in the world, is situated in the country of Nepal. It is a popular destination for mountaineers from around the globe.",
+        "entity": [
+          "Mount Everest",
+          "Nepal"
+        ],
+        "relation": [
+          [
+            "Mount Everest",
+            "country",
+            "Nepal"
+          ]
+        ]
+      },
+      {
+        "sentence": "Mount Everest, although its summit point lies on the border, is primarily associated with the country of the People's Republic of China. It attracts climbers from different parts of the world.",
+        "entity": [
+          "Mount Everest",
+          "People's Republic of China"
+        ],
+        "relation": [
+          [
+            "Mount Everest",
+            "country",
+            "People's Republic of China"
+          ]
+        ]
+      }
+    ]
+  },
+  "country of origin": {
+    "description": "\"country of origin\" refers to country of origin of this item (creative work, food, phrase, product, etc.).",
+    "examples": "Breaking Bad country of origin United States of America; mozzarella country of origin Italy; Stamppot country of origin Netherlands; Come Together country of origin United Kingdom"
+  },
+  "located in the administrative territorial entity": {
+    "description": "\"located in the administrative territorial entity\" refers to the subject being located within a specific administrative entity, which is the object.",
+    "examples": [
+      {
+        "sentence": "Jungfrau is located in the administrative territorial entity of Lauterbrunnen. It is a popular mountain in the Swiss Alps, known for its breathtaking views.",
+        "entity": [
+          "Jungfrau",
+          "Lauterbrunnen",
+          "Swiss Alps"
+        ],
+        "relation": [
+          [
+            "Jungfrau",
+            "located in the administrative territorial entity",
+            "Lauterbrunnen"
+          ]
+        ]
+      },
+      {
+        "sentence": "The University District is situated in the administrative territorial entity of Seattle. It is a neighborhood in the city of Seattle, known for its vibrant student community.",
+        "entity": [
+          "University District",
+          "Seattle"
+        ],
+        "relation": [
+          [
+            "University District",
+            "located in the administrative territorial entity",
+            "Seattle"
+          ]
+        ]
+      }
+    ]
+  },
+  "contains administrative territorial entity": {
+    "description": "\"contains administrative territorial entity\" refers to (list of) direct subdivisions of an administrative territorial entity.",
+    "examples": ""
+  },
+  "location": {
+    "description": "\"location\" refers to the specific place where the subject (a item, structure, or event, not person) is situated. It is used for specifying locations that are non-administrative places and for items about events. The object should not be an administrative entity or a geographic entity.",
+    "examples": [
+      {
+        "sentence": "The Eiffel Tower, a famous landmark in Paris, is located in Champ de Mars, Paris, France.",
+        "entity": [
+          "Eiffel Tower",
+          "Champ de Mars",
+          "Paris",
+          "France"
+        ],
+        "relation": [
+          [
+            "Eiffel Tower",
+            "location",
+            "Champ de Mars, Paris, France"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Amazon Rainforest, the largest tropical rainforest in the world, is situated in South America, mainly covering Brazil, Peru, Colombia, and other countries.",
+        "entity": [
+          "Amazon Rainforest",
+          "South America",
+          "Brazil",
+          "Peru",
+          "Colombia"
+        ],
+        "relation": [
+          [
+            "Amazon Rainforest",
+            "location",
+            "South America, mainly Brazil, Peru, Colombia"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Sydney Opera House, a renowned performing arts venue, is located in Sydney Harbour, Sydney, Australia.",
+        "entity": [
+          "Sydney Opera House",
+          "Sydney Harbour",
+          "Sydney",
+          "Australia"
+        ],
+        "relation": [
+          [
+            "Sydney Opera House",
+            "location",
+            "Sydney Harbour, Sydney, Australia"
+          ]
+        ]
+      }
+    ]
+  },
+  "headquarters location": {
+    "description": "\"headquarters location\" refers to the city where an organization's headquarters(which is subject) is or has been situated.",
+    "examples": [
+      {
+        "sentence": "The Organization of the Petroleum Exporting Countries (OPEC) has its headquarters in Vienna, Austria.",
+        "entity": [
+          "Organization of the Petroleum Exporting Countries",
+          "Vienna"
+        ],
+        "relation": [
+          [
+            "Organization of the Petroleum Exporting Countries",
+            "headquarters location",
+            "Vienna"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Wikimedia Foundation, the organization behind Wikipedia, is headquartered in San Francisco, California.",
+        "entity": [
+          "Wikimedia Foundation",
+          "San Francisco"
+        ],
+        "relation": [
+          [
+            "Wikimedia Foundation",
+            "headquarters location",
+            "San Francisco"
+          ]
+        ]
+      },
+      {
+        "sentence": "Royal Dutch Shell, a multinational oil company, has its main headquarters located in The Hague, Netherlands.",
+        "entity": [
+          "Royal Dutch Shell",
+          "The Hague"
+        ],
+        "relation": [
+          [
+            "Royal Dutch Shell",
+            "headquarters location",
+            "The Hague"
+          ]
+        ]
+      }
+    ]
+  },
+  "set in location": {
+    "description": "\"set in location\" refers to the relationship between a work and the specific location where its narrative is set. The subject is a work and the object is specific location.",
+    "examples": "Paul et Virginie narrative location Mauritius Island; Nineteen Eighty-Four narrative location London; 2001: A Space Odyssey narrative location outer space; 300 narrative location Thermopylae"
+  },
+  "narrative location": {
+    "description": "\"narrative location\" refers to the narrative of the work is set in this location.",
+    "examples": "Paul et Virginie narrative location Mauritius Island; Nineteen Eighty-Four narrative location London; 2001: A Space Odyssey narrative location outer space; 300 narrative location Thermopylae"
+  },
+  "location of formation": {
+    "description": "\"location of formation\" refers to the place where a group or organization originated or was established.",
+    "examples": [
+      {
+        "sentence": "The Beatles, one of the most influential rock bands in history, was formed in the vibrant city of Liverpool.",
+        "entity": [
+          "The Beatles",
+          "Liverpool"
+        ],
+        "relation": [
+          [
+            "The Beatles",
+            "location of formation",
+            "Liverpool"
+          ]
+        ]
+      },
+      {
+        "sentence": "Birmingham Small Arms Company, a renowned firearms manufacturer, has its roots in the city of Birmingham.",
+        "entity": [
+          "Birmingham Small Arms Company",
+          "Birmingham"
+        ],
+        "relation": [
+          [
+            "Birmingham Small Arms Company",
+            "location of formation",
+            "Birmingham"
+          ]
+        ]
+      },
+      {
+        "sentence": "Google, the global technology giant, emerged from its humble beginnings in the small town of Menlo Park, California.",
+        "entity": [
+          "Google",
+          "Menlo Park, California"
+        ],
+        "relation": [
+          [
+            "Google",
+            "location of formation",
+            "Menlo Park, California"
+          ]
+        ]
+      }
+    ]
+  },
+  "located on terrain feature": {
+    "description": "\"located on terrain feature\" refers to the subject being situated on a specific (geo)physical feature. The object should not be political/administrative or a mountain range.",
+    "examples": [
+      {
+        "sentence": "The Eiffel Tower is located on the terrain feature known as Champ de Mars.",
+        "entity": [
+          "The Eiffel Tower",
+          "Champ de Mars"
+        ],
+        "relation": [
+          [
+            "The Eiffel Tower",
+            "located on terrain feature",
+            "Champ de Mars"
+          ]
+        ]
+      },
+      {
+        "sentence": "Mount Everest is located on the terrain feature known as the Himalayas.",
+        "entity": [
+          "Mount Everest",
+          "the Himalayas"
+        ],
+        "relation": [
+          [
+            "Mount Everest",
+            "located on terrain feature",
+            "the Himalayas"
+          ]
+        ]
+      }
+    ]
+  },
+  "is located by the waterfront of": {
+    "description": "\"is located by the waterfront of\" refers to a location that is situated adjacent to or in close proximity to a body of water. The subject represents the specific location, and the object represents the body of water.",
+    "examples": ""
+  },
+  "located in or next to body of water": {
+    "description": "\"located in or next to body of water\" refers to sea, lake, river or stream.",
+    "examples": "HafenCity located in or next to body of water Zollkanal; Campania located in or next to body of water Tyrrhenian Sea; Phare d'Eckm\\u00FChl located in or next to body of water Atlantic Ocean; Saint Petersburg located in or next to body of water Neva; Saint Petersburg located in or next to body of water Gulf of Finland; Baranagar located in or next to body of water Ganges"
+  },
+  "has water basin country": {
+    "description": "\"has water basin country\" refers to a water basin that encompasses or borders a specific country. The subject is the water basin, and the object is the corresponding country.",
+    "examples": ""
+  },
+  "basin country": {
+    "description": "\"basin country\" refers to country that have drainage to/from or border the body of water.",
+    "examples": "Vltava basin country Czech Republic; Persian Gulf basin country United Arab Emirates; Lake Baikal basin country Mongolia; Lake Baikal basin country Russia; Caspian Sea basin country Turkmenistan; Mediterranean Sea basin country Morocco"
+  },
+  "drains into": {
+    "description": "\"drains into\" refers to the action of a watercourse flowing from the subject into the object, where the subject is a watercourse and the object is a body of water.",
+    "examples": "The Vltava river drains into the Elbe river; The Rivi\u00E8re des Remparts drains into the Indian Ocean; The Okavango River drains into the Okavango Delta."
+  },
+  "mouth of the watercourse": {
+    "description": "\"mouth of the watercourse\" refers to the body of water to which the watercourse drains.",
+    "examples": "Vltava mouth of the watercourse Elbe; Rivi\\u00E8re des Remparts mouth of the watercourse Indian Ocean; Okavango River mouth of the watercourse Okavango Delta"
+  },
+  "capital of": {
+    "description": "\"capital of\" refers to country, state, department, canton or other administrative division of which the municipality is the governmental seat.",
+    "examples": [
+      {
+        "sentence": "Tallinn is the capital of Estonia.",
+        "entity": [
+          "Tallinn",
+          "Estonia"
+        ],
+        "relation": [
+          [
+            "Tallinn",
+            "capital of",
+            "Estonia"
+          ]
+        ]
+      },
+      {
+        "sentence": "Rome serves as the capital of Italy.",
+        "entity": [
+          "Rome",
+          "Italy"
+        ],
+        "relation": [
+          [
+            "Rome",
+            "capital of",
+            "Italy"
+          ]
+        ]
+      }
+    ]
+  },
+  "capital": {
+    "description": "\"capital\" refers to seat of government of a country, province, state or other type of administrative territorial entity.",
+    "examples": "Estonia capital Tallinn; Russia capital Moscow; Russia capital Saint Petersburg; Italy capital Rome; Bolivia capital Sucre; Bolivia capital La Paz; Regenkreis capital Straubing; Regenkreis capital Regensburg"
+  },
+  "belongs to continent": {
+    "description": "\"belongs to continent\" refers to continent of which the subject is a part.",
+    "examples": "Afghanistan continent Asia; India continent Asia; Libya continent Africa; Metropolitan France continent Europe; France continent Europe"
+  },
+  "continent": {
+    "description": "\"continent\" refers to continent of which the subject is a part.",
+    "examples": "Afghanistan continent Asia; India continent Asia; Libya continent Africa; Metropolitan France continent Europe; France continent Europe"
+  },
+  "serve as government head of": {
+    "description": "\"serve as government head of\" refers to the person who holds the highest executive position in a town, city, municipality, state, country, or any other governmental body. The subject is the individual holding the position, and the object is the country or governmental body.",
+    "examples": []
+  },
+  "head of government": {
+    "description": "\"head of government\" refers to head of the executive power of this town, city, municipality, state, country, or other governmental body.",
+    "examples": "Germany head of government Angela Merkel; Russia head of government Vladimir Putin; United States of America head of government Joe Biden; Indonesia head of government Joko Widodo; Turkey head of government Recep Tayyip Erdo\\u011Fan"
+  },
+  "serve as state head of": {
+    "description": "\"serve as state head of\" refers to official with the highest formal authority in a country/state. The subject is the individual holding the position, and the object is the country.",
+    "examples": ""
+  },
+  "head of state": {
+    "description": "\"head of state\" refers to official with the highest formal authority in a country/state.",
+    "examples": ""
+  },
+  "has chairperson": {
+    "description": "\"has chairperson\" refers to the relationship between an organization, group, or body (subject) and its presiding member (object), who serves as the chairperson.",
+    "examples": "United Nations chairperson Ant\\u00F3nio Guterres; Bundestag of Germany chairperson Norbert Lammert; United States House of Representatives chairperson Paul Ryan; Christian Democratic Union chairperson Angela Merkel; United Nations General Assembly chairperson Mogens Lykketoft"
+  },
+  "chairperson": {
+    "description": "\"chairperson\" refers to presiding member of an organization, group or body.",
+    "examples": "United Nations chairperson Ant\\u00F3nio Guterres; Bundestag of Germany chairperson Norbert Lammert; United States House of Representatives chairperson Paul Ryan; Christian Democratic Union chairperson Angela Merkel; United Nations General Assembly chairperson Mogens Lykketoft"
+  },
+  "followed by": {
+    "description": "\"followed by\" refers to the immediate succession of an item or event in a series, where the subject is a part of that series. The subject and object should be books, songs, works, or events, and same kind, but not for person.",
+    "examples": [
+      {
+        "sentence": "Barack Obama served as the 44th President of the United States, followed by Donald Trump. He was succeeded by Donald Trump in 2017.",
+        "entity": [
+          "Barack Obama",
+          "44th President of the United States",
+          "Donald Trump"
+        ],
+        "relation": [
+          [
+            "Barack Obama",
+            "followed by",
+            "Donald Trump"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Beatles, one of the most influential rock bands in history, released their album 'Rubber Soul' in 1965, followed by 'Revolver' in 1966. The 'Revolver' album marked a significant shift in their musical style.",
+        "entity": [
+          "The Beatles",
+          "Rubber Soul",
+          "Revolver"
+        ],
+        "relation": [
+          [
+            "The Beatles",
+            "followed by",
+            "Rubber Soul"
+          ],
+          [
+            "Rubber Soul",
+            "followed by",
+            "Revolver"
+          ]
+        ]
+      },
+      {
+        "sentence": "The invention of the telephone by Alexander Graham Bell was followed by the development of mobile phones. The invention of mobile phones revolutionized communication technology.",
+        "entity": [
+          "Alexander Graham Bell",
+          "telephone",
+          "development of mobile phones"
+        ],
+        "relation": [
+          [
+            "Alexander Graham Bell",
+            "followed by",
+            "development of mobile phones"
+          ]
+        ]
+      }
+    ]
+  },
+  "follows": {
+    "description": "\"follows\" refers to immediately prior item in a series of which the subject is a part [if the subject has replaced the preceding item, e.g. political offices, use \"replaces\" (P1365)].",
+    "examples": ""
+  },
+  "has legislative body": {
+    "description": "\"has legislative body\" refers to the political institution that governs the entity and consists of elected representatives, such as a parliament, legislature, or council. The subject is the entity being governed, and the object is the specific legislative body.",
+    "examples": [
+      {
+        "sentence": "The legislative body of the United Kingdom is the Parliament of the United Kingdom. It is composed of elected representatives who make laws and govern the country.",
+        "entity": [
+          "United Kingdom",
+          "Parliament of the United Kingdom"
+        ],
+        "relation": [
+          [
+            "United Kingdom",
+            "has legislative body",
+            "Parliament of the United Kingdom"
+          ]
+        ]
+      },
+      {
+        "sentence": "The New York City Council serves as the legislative body of New York City. It is responsible for enacting local laws and regulations for the city.",
+        "entity": [
+          "New York City",
+          "New York City Council"
+        ],
+        "relation": [
+          [
+            "New York City",
+            "has legislative body",
+            "New York City Council"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Knesset is the legislative body of Israel. It is the parliament of Israel and exercises legislative authority in the country.",
+        "entity": [
+          "Israel",
+          "Knesset"
+        ],
+        "relation": [
+          [
+            "Israel",
+            "has legislative body",
+            "Knesset"
+          ]
+        ]
+      }
+    ]
+  },
+  "legislative body": {
+    "description": "\"legislative body\" refers to legislative body governing this entity; political institution with elected representatives, such as a parliament/legislature or council.",
+    "examples": "United Kingdom legislative body Parliament of the United Kingdom; New York City legislative body New York City Council; Israel legislative body Knesset"
+  },
+  "applies to jurisdiction": {
+    "description": "\"applies to jurisdiction\" refers to an item (institution, law, public office, public register, etc.) or statement that belongs to or has power over a specific territorial jurisdiction, such as a country, state, municipality, etc. The subject is the item or statement, and the object is the territorial jurisdiction it applies to.",
+    "examples": [
+      {
+        "sentence": "The European Central Bank operates within the jurisdiction of the Eurozone. It is responsible for managing the monetary policy of the Eurozone countries.",
+        "entity": [
+          "European Central Bank",
+          "Eurozone"
+        ],
+        "relation": [
+          [
+            "European Central Bank",
+            "applies to jurisdiction",
+            "Eurozone"
+          ]
+        ]
+      },
+      {
+        "sentence": "The President of the United States holds the highest public office that applies to the jurisdiction of the United States of America. The President serves as the head of state and the head of government.",
+        "entity": [
+          "President of the United States",
+          "United States of America"
+        ],
+        "relation": [
+          [
+            "President of the United States",
+            "applies to jurisdiction",
+            "United States of America"
+          ]
+        ]
+      },
+      {
+        "sentence": "A member of the State Senate of Oregon represents and applies to the jurisdiction of the state of Oregon. They are elected to make legislative decisions for the state.",
+        "entity": [
+          "member of the State Senate of Oregon",
+          "Oregon"
+        ],
+        "relation": [
+          [
+            "member of the State Senate of Oregon",
+            "applies to jurisdiction",
+            "Oregon"
+          ]
+        ]
+      },
+      {
+        "sentence": "The mayor of Paris is an elected official who applies to the jurisdiction of the city of Paris. They are responsible for governing the city and representing its interests.",
+        "entity": [
+          "mayor of Paris",
+          "Paris"
+        ],
+        "relation": [
+          [
+            "mayor of Paris",
+            "applies to jurisdiction",
+            "Paris"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Criminal Code of Belarus is a legal document that applies to the jurisdiction of Belarus. It outlines the criminal laws and penalties in the country.",
+        "entity": [
+          "Criminal Code of Belarus",
+          "Belarus"
+        ],
+        "relation": [
+          [
+            "Criminal Code of Belarus",
+            "applies to jurisdiction",
+            "Belarus"
+          ]
+        ]
+      }
+    ]
+  },
+  "created by": {
+    "description": "\"created by\" refers to the maker or creator of a creative work or other object, like written work, song lyrics, games, software, film, musical work, theatrical production, etc. The subject is the creative work or object, and the object is the creator.",
+    "examples": [
+      {
+        "sentence": "The artwork 'The Potato Eaters' was created by Vincent van Gogh.",
+        "entity": [
+          "The Potato Eaters",
+          "Vincent van Gogh"
+        ],
+        "relation": [
+          [
+            "The Potato Eaters",
+            "created by",
+            "Vincent van Gogh"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Harry Potter book series was created by J.K. Rowling.",
+        "entity": [
+          "Harry Potter book series",
+          "J.K. Rowling"
+        ],
+        "relation": [
+          [
+            "Harry Potter book series",
+            "created by",
+            "J.K. Rowling"
+          ]
+        ]
+      },
+      {
+        "sentence": "Many iconic Marvel comic book characters, including Spider-Man and Iron Man, were created by Stan Lee.",
+        "entity": [
+          "Marvel comic book characters",
+          "Stan Lee"
+        ],
+        "relation": [
+          [
+            "Marvel comic book characters",
+            "created by",
+            "Stan Lee"
+          ]
+        ]
+      }
+    ]
+  },
+  "creator": {
+    "description": "\"creator\" refers to maker of this creative work or other object (where no more specific property exists).",
+    "examples": "The Potato Eaters creator Vincent van Gogh"
+  },
+  "author": {
+    "description": "\"author\" refers to main creator(s) of a written work (use on works, not humans); use P2093 when Wikidata item is unknown or does not exist.",
+    "examples": "Pride and Prejudice author Jane Austen; Iliad author Homer; The Lord of the Rings author J.\\u00A0R.\\u00A0R. Tolkien; Anna Karenina author Leo Tolstoy; Mp3tag author Florian Heidenreich"
+  },
+  "developer": {
+    "description": "\"developer\" refers to organisation or person that developed the item.",
+    "examples": ""
+  },
+  "manufacturer": {
+    "description": "\"manufacturer\" refers to manufacturer or producer of this product.",
+    "examples": "Airbus A320 family manufacturer Airbus; Type 26 revolver manufacturer Koishikawa arsenal"
+  },
+  "composer": {
+    "description": "\"composer\" refers to person(s) who wrote the music [for lyricist, use \\\"lyrics by\\\" (P676)].",
+    "examples": "Madama Butterfly composer Giacomo Puccini; The Marriage of Figaro composer Wolfgang Amadeus Mozart; Carmen composer Georges Bizet"
+  },
+  "lyrics by": {
+    "description": "\"lyrics by\" refers to author of song lyrics.",
+    "examples": "I Will Always Love You lyrics by Dolly Parton"
+  },
+  "producer": {
+    "description": "\"producer\" refers to person(s) who produced the film, musical work, theatrical production, etc. (for film, this does not include executive producers, associate producers, etc.) [for production company, use P272, video games - use P178].",
+    "examples": "Bambi producer Walt Disney; Citizen Kane producer Orson Welles; Thriller producer Michael Jackson"
+  },
+  "screenwriter": {
+    "description": "\"screenwriter\" refers to person(s) who wrote the script for subject item.",
+    "examples": "Titanic screenwriter James Cameron; The Witness screenwriter P\\u00E9ter Bacs\\u00F3"
+  },
+  "performed by": {
+    "description": "\"performed by\" refers to an actor, musician, band, or other performer associated with a specific role or musical work. The subject is the role or musical work, and the object is the performer.",
+    "examples": [
+      {
+        "sentence": "The musical work Rent features Anthony Rapp as one of the performers. He played the role of Mark Cohen.",
+        "entity": [
+          "Rent",
+          "Anthony Rapp"
+        ],
+        "relation": [
+          [
+            "Rent",
+            "performed by",
+            "Anthony Rapp"
+          ]
+        ]
+      },
+      {
+        "sentence": "Daphne Rubin-Vega was one of the performers in the musical work Rent. She portrayed the role of Mimi Marquez.",
+        "entity": [
+          "Rent",
+          "Daphne Rubin-Vega"
+        ],
+        "relation": [
+          [
+            "Rent",
+            "performed by",
+            "Daphne Rubin-Vega"
+          ]
+        ]
+      },
+      {
+        "sentence": "Mark Hamill is widely recognized as the performer of the character Luke Skywalker in the Star Wars series.",
+        "entity": [
+          "Luke Skywalker",
+          "Mark Hamill"
+        ],
+        "relation": [
+          [
+            "Luke Skywalker",
+            "performed by",
+            "Mark Hamill"
+          ]
+        ]
+      }
+    ]
+  },
+  "performer": {
+    "description": "\"performer\" refers to actor, musician, band or other performer associated with this role or musical work.",
+    "examples": "Rent performer Anthony Rapp; Rent performer Daphne Rubin-Vega; Luke Skywalker performer Mark Hamill"
+  },
+  "directed by": {
+    "description": "\"directed by\" refers to the person or persons who directed the subject film, TV series, stage play, video game, or similar. They are responsible for guiding the creative vision and overall production of the subject.",
+    "examples": [
+      {
+        "sentence": "Inception, a mind-bending science fiction movie released in 2010, was directed by Christopher Nolan.",
+        "entity": [
+          "Inception",
+          "Christopher Nolan"
+        ],
+        "relation": [
+          [
+            "Inception",
+            "directed by",
+            "Christopher Nolan"
+          ]
+        ]
+      },
+      {
+        "sentence": "Jurassic Park, a blockbuster adventure movie released in 1993, had Steven Spielberg as its director.",
+        "entity": [
+          "Jurassic Park",
+          "Steven Spielberg"
+        ],
+        "relation": [
+          [
+            "Jurassic Park",
+            "directed by",
+            "Steven Spielberg"
+          ]
+        ]
+      },
+      {
+        "sentence": "Pulp Fiction, a cult classic crime movie released in 1994, was directed by Quentin Tarantino.",
+        "entity": [
+          "Pulp Fiction",
+          "Quentin Tarantino"
+        ],
+        "relation": [
+          [
+            "Pulp Fiction",
+            "directed by",
+            "Quentin Tarantino"
+          ]
+        ]
+      }
+    ]
+  },
+  "director": {
+    "description": "\"director\" refers to director(s) of film, TV-series, stageplay, video game or similar.",
+    "examples": "Titanic director James Cameron; The Eel director Shohei Imamura; Metal Gear Solid 2: Sons of Liberty director Hideo Kojima"
+  },
+  "published by": {
+    "description": "\"published by\" refers to organization or person(object) responsible for publishing books, periodicals, printed music, podcasts, games or software(subject).",
+    "examples": "The Oxford English Dictionary publisher Oxford University Press; StarCraft publisher Blizzard Entertainment; The New York Times publisher A. G. Sulzberger"
+  },
+  "publisher": {
+    "description": "\"publisher\" refers to organization or person responsible for publishing books, periodicals, printed music, podcasts, games or software.",
+    "examples": "The Oxford English Dictionary publisher Oxford University Press; StarCraft publisher Blizzard Entertainment; The New York Times publisher A. G. Sulzberger"
+  },
+  "instance of": {
+    "description": "\"instance of\" refers to the class or category to which the subject belongs as a particular example or member.",
+    "examples": [
+      {
+        "sentence": "The Eiffel Tower is an example of a landmark. It is a well-known architectural structure in Paris.",
+        "entity": [
+          "Eiffel Tower",
+          "landmark"
+        ],
+        "relation": [
+          [
+            "Eiffel Tower",
+            "instance of",
+            "landmark"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Mona Lisa painting is categorized as a masterpiece. It is a famous artwork created by Leonardo da Vinci.",
+        "entity": [
+          "Mona Lisa painting",
+          "masterpiece"
+        ],
+        "relation": [
+          [
+            "Mona Lisa painting",
+            "instance of",
+            "masterpiece"
+          ]
+        ]
+      },
+      {
+        "sentence": "The iPhone is classified as a smartphone. It is a popular mobile device developed by Apple Inc.",
+        "entity": [
+          "iPhone",
+          "smartphone"
+        ],
+        "relation": [
+          [
+            "iPhone",
+            "instance of",
+            "smartphone"
+          ]
+        ]
+      }
+    ]
+  },
+  "parent taxon": {
+    "description": "\"parent taxon\" refers to closest parent taxon of the taxon in question.",
+    "examples": "pig parent taxon wild pig; butterfly parent taxon Lepidoptera; Northern Raven parent taxon Corvus; dog parent taxon gray wolf"
+  },
+  "subclass of": {
+    "description": "\"subclass of\" refers to the next higher class or type. All instances of the subject are also instances of the object. The subject is a class or subset of the object.",
+    "examples": [
+      {
+        "sentence": "Golden Retriever belongs to the class of Dog breeds.",
+        "entity": [
+          "Golden Retriever",
+          "Dog breeds"
+        ],
+        "relation": [
+          [
+            "Golden Retriever",
+            "subclass of",
+            "Dog breeds"
+          ]
+        ]
+      },
+      {
+        "sentence": "Apple is a type of Fruit.",
+        "entity": [
+          "Apple",
+          "Fruit"
+        ],
+        "relation": [
+          [
+            "Apple",
+            "subclass of",
+            "Fruit"
+          ]
+        ]
+      },
+      {
+        "sentence": "Thriller falls under the category of Film Genres.",
+        "entity": [
+          "Thriller",
+          "Film Genres"
+        ],
+        "relation": [
+          [
+            "Thriller",
+            "subclass of",
+            "Film Genres"
+          ]
+        ]
+      }
+    ]
+  },
+  "part of": {
+    "description": "\"part of\" refers to the object of which the subject is a part. It indicates the inclusion or membership of the subject within a larger entity.",
+    "examples": [
+      {
+        "sentence": "The Eiffel Tower is part of the cityscape of Paris, France, and has become one of its most iconic landmarks.",
+        "entity": [
+          "Eiffel Tower",
+          "Paris",
+          "France"
+        ],
+        "relation": [
+          [
+            "Eiffel Tower",
+            "part of",
+            "Paris"
+          ]
+        ]
+      },
+      {
+        "sentence": "The engine is an essential part of a car, responsible for powering the vehicle and its various functions.",
+        "entity": [
+          "engine",
+          "car"
+        ],
+        "relation": [
+          [
+            "engine",
+            "part of",
+            "car"
+          ]
+        ]
+      },
+      {
+        "sentence": "The heart is a vital organ and is part of the human circulatory system, responsible for pumping blood throughout the body.",
+        "entity": [
+          "heart",
+          "human circulatory system"
+        ],
+        "relation": [
+          [
+            "heart",
+            "part of",
+            "human circulatory system"
+          ]
+        ]
+      }
+    ]
+  },
+  "has part": {
+    "description": "\"has part\" refers to part of this subject; inverse property of \\\"part of\\\" (P361). See also \\\"has parts of the class\\\" (P2670)..",
+    "examples": "Eurasia has part Europe; Eurasia has part Asia; Solar System has part Mercury; Solar System has part Venus; Solar System has part Earth; Solar System has part Mars; Americas has part North America; Americas has part South America; The Beatles has part John Lennon; The Beatles has part Paul McCartney; The Beatles has part Ringo Starr; The Beatles has part George Harrison; Bible has part Old Testament; Bible has part New Testament; Bible has part Biblical apocrypha; triathlon has part running; triathlon has part road bicycle racing; triathlon has part swimming"
+  },
+  "series": {
+    "description": "\"series\" refers to series which contains the subject.",
+    "examples": ""
+  },
+  "occurrence time": {
+    "description": "\"occurrence time\" refers to a specific time and date when a subject came into existence, an event involving the subject took place, an activity related to the subject began, or a statement regarding the subject became true. It emphasizes the happening or existence of the subject at a particular moment in time.",
+    "examples": ""
+  },
+  "publication date": {
+    "description": "\"publication date\" refers to date or point in time when a work was first published or released.",
+    "examples": ""
+  },
+  "inception": {
+    "description": "\"inception\" refers to date or point in time when the subject came into existence as defined.",
+    "examples": ""
+  },
+  "start time": {
+    "description": "\"start time\" refers to time an item begins to exist or a statement starts being valid.",
+    "examples": ""
+  },
+  "point in time": {
+    "description": "\"point in time\" refers to time and date something took place, existed or a statement was true.",
+    "examples": ""
+  },
+  "production company": {
+    "description": "\"production company\" refers to the company that provides financial support and organizational resources for the production of the subject film, audio, or performing arts work.",
+    "examples": [
+      {
+        "sentence": "The movie Bambi, released in 1942, was produced by The Walt Disney Company, one of the leading production companies in the entertainment industry.",
+        "entity": [
+          "Bambi",
+          "The Walt Disney Company"
+        ],
+        "relation": [
+          [
+            "Bambi",
+            "production company",
+            "The Walt Disney Company"
+          ]
+        ]
+      },
+      {
+        "sentence": "Batman Begins, a superhero film released in 2005, was brought to life by Warner Bros., a renowned production company known for its successful film franchises.",
+        "entity": [
+          "Batman Begins",
+          "Warner Bros."
+        ],
+        "relation": [
+          [
+            "Batman Begins",
+            "production company",
+            "Warner Bros."
+          ]
+        ]
+      },
+      {
+        "sentence": "Toy Story, a beloved animated film released in 1995, was made possible by the creative minds at Pixar, an innovative production company known for pushing the boundaries of animation.",
+        "entity": [
+          "Toy Story",
+          "Pixar"
+        ],
+        "relation": [
+          [
+            "Toy Story",
+            "production company",
+            "Pixar"
+          ]
+        ]
+      }
+    ]
+  },
+  "owned by": {
+    "description": "\"owned by\" refers to the entity or object that is the owner of the subject. The subject is a item and object is a person or organization or group.",
+    "examples": [
+      {
+        "sentence": "Karl Lagerfeld, a renowned fashion designer, owns the famous pet cat Choupette.",
+        "entity": [
+          "Karl Lagerfeld",
+          "Choupette"
+        ],
+        "relation": [
+          [
+            "Choupette",
+            "owned by",
+            "Karl Lagerfeld"
+          ]
+        ]
+      },
+      {
+        "sentence": "The city of Paris is the owner of the iconic Eiffel Tower.",
+        "entity": [
+          "The Eiffel Tower",
+          "Paris"
+        ],
+        "relation": [
+          [
+            "The Eiffel Tower",
+            "owned by",
+            "Paris"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Wikimedia Foundation, a non-profit organization, owns the online dictionary Wiktionary.",
+        "entity": [
+          "Wiktionary",
+          "Wikimedia Foundation"
+        ],
+        "relation": [
+          [
+            "Wiktionary",
+            "owned by",
+            "Wikimedia Foundation"
+          ]
+        ]
+      }
+    ]
+  },
+  "parent organization": {
+    "description": "\"parent organization\" refers to the organization that is the parent or controlling entity of the subject organization.",
+    "examples": [
+      {
+        "sentence": "Airbus is a subsidiary of the parent organization Airbus Group.",
+        "entity": [
+          "Airbus",
+          "Airbus Group"
+        ],
+        "relation": [
+          [
+            "Airbus",
+            "parent organization",
+            "Airbus Group"
+          ]
+        ]
+      },
+      {
+        "sentence": "The Ministry of Civil Affairs is under the parent organization State Council of the People's Republic of China.",
+        "entity": [
+          "The Ministry of Civil Affairs",
+          "State Council of the People's Republic of China"
+        ],
+        "relation": [
+          [
+            "The Ministry of Civil Affairs",
+            "parent organization",
+            "State Council of the People's Republic of China"
+          ]
+        ]
+      }
+    ]
+  },
+  "subsidiary": {
+    "description": "\"subsidiary\" refers to subsidiary of a company or organization; generally a fully owned separate corporation. Compare with \\\"business division\\\" (P199). Opposite of parent organization (P749)..",
+    "examples": "The Walt Disney Company subsidiary Walt Disney Studios Motion Pictures; The Walt Disney Company subsidiary Walt Disney Animation Studios; Microsoft subsidiary Skype Technologies; Toons Mag subsidiary Periodical"
+  },
+  "belongs to military branch": {
+    "description": "\"belongs to military branch\" refers to the affiliation of the object with a specific military branch, where the object can be a military unit, award, office, or person, and the subject is the entity that belongs to the military branch.",
+    "examples": "Prince Harry, Duke of Sussex belongs to military branch British Army; Vladimir Putin belongs to military branch KGB; Ronald Reagan belongs to military branch United States Army; Royal Gurkha Rifles belongs to military branch British Army"
+  },
+  "military branch": {
+    "description": "\"military branch\" refers to branch to which this military unit, award, office, or person belongs, e.g. Royal Navy.",
+    "examples": "Prince Harry, Duke of Sussex military branch British Army; Vladimir Putin military branch KGB; Ronald Reagan military branch United States Army; Royal Gurkha Rifles military branch British Army"
+  },
+  "founded by": {
+    "description": "\"founded by\" refers to the founder or co-founder of an organization, religion, or place. It highlights the individual or individuals responsible for establishing the entity.",
+    "examples": "Apple Inc. founded by Steve Jobs; Apple Inc. founded by Steve Wozniak; Apple Inc. founded by Ronald Wayne; Wikimedia Foundation founded by Jimmy Wales"
+  },
+  "present in work": {
+    "description": "\"present in work\" refers to this (fictional or fictionalized) entity or person appears in that work as part of the narration, etc movie or book.",
+    "examples": "Irina Nikolayevna Arkadina present in work The Seagull; Frodo Baggins present in work The Lord of the Rings"
+  },
+  "characters": {
+    "description": "\"characters\" refers to characters which appear in this item (like plays, operas, operettas, books, comics, films, TV series, video games).",
+    "examples": "Les Mis\\u00E9rables characters Cosette; The Lord of the Rings characters Gandalf"
+  },
+  "languages spoken, written or signed": {
+    "description": "\"languages spoken, written or signed\" refers to the languages spoken, written or signed by a person or a people, including their native language(s).",
+    "examples": [
+      {
+        "sentence": "Confucius spoke, wrote, or signed Old Chinese.",
+        "entity": [
+          "Confucius",
+          "Old Chinese"
+        ],
+        "relation": [
+          [
+            "Confucius",
+            "languages spoken, written or signed",
+            "Old Chinese"
+          ]
+        ]
+      },
+      {
+        "sentence": "Koko uses American Sign Language for communication.",
+        "entity": [
+          "Koko",
+          "American Sign Language"
+        ],
+        "relation": [
+          [
+            "Koko",
+            "languages spoken, written or signed",
+            "American Sign Language"
+          ]
+        ]
+      }
+    ]
+  },
+  "official language": {
+    "description": "\"official language\" refers to the language that is designated as the official language by the subject. It represents the language that is used for official purposes and administration.",
+    "examples": [
+      {
+        "sentence": "Canada has English and French as its official languages.",
+        "entity": [
+          "Canada",
+          "English",
+          "French"
+        ],
+        "relation": [
+          [
+            "Canada",
+            "official language",
+            "English"
+          ],
+          [
+            "Canada",
+            "official language",
+            "French"
+          ]
+        ]
+      },
+      {
+        "sentence": "Spain has Spanish as its official language.",
+        "entity": [
+          "Spain",
+          "Spanish"
+        ],
+        "relation": [
+          [
+            "Spain",
+            "official language",
+            "Spanish"
+          ]
+        ]
+      },
+      {
+        "sentence": "India has Hindi and English as its official languages.",
+        "entity": [
+          "India",
+          "Hindi",
+          "English"
+        ],
+        "relation": [
+          [
+            "India",
+            "official language",
+            "Hindi"
+          ],
+          [
+            "India",
+            "official language",
+            "English"
+          ]
+        ]
+      }
+    ]
+  },
+  "is operated by": {
+    "description": "\"is operated by\" refers to the relationship between an equipment, facility, or service (subject) and the person, profession, or organization (object) that operates it.\".",
+    "examples": "Yamanote Line operator East Japan Railway Company; Embassy of the United Kingdom, Washington, D.C. operator United Kingdom; Paris-Charles de Gaulle Airport operator Groupe ADP; Embassy of the People's Republic of China in Washington, D.C. operator People's Republic of China"
+  },
+  "operator": {
+    "description": "\"operator\" refers to person, profession, or organization that operates the equipment, facility, or service.",
+    "examples": "Yamanote Line operator East Japan Railway Company; Embassy of the United Kingdom, Washington, D.C. operator United Kingdom; Paris-Charles de Gaulle Airport operator Groupe ADP; Embassy of the People's Republic of China in Washington, D.C. operator People's Republic of China"
+  },
+  "has record label": {
+    "description": "\"has record label\" refers to the relationship between a music recording or music video (subject) and the associated brand and trademark (object) responsible for its marketing.",
+    "examples": "A Night at the Opera record label EMI; Daft Punk record label Columbia Records; Lorde record label Universal Music Group"
+  },
+  "record label": {
+    "description": "\"record label\" refers to brand and trademark associated with the marketing of subject music recordings and music videos.",
+    "examples": "A Night at the Opera record label EMI; Daft Punk record label Columbia Records; Lorde record label Universal Music Group"
+  },
+  "replaces": {
+    "description": "\"replaces\" refers to the person, state, or item that was replaced by the subject.",
+    "examples": [
+      {
+        "sentence": "Barack Obama succeeded George W. Bush as the President of the United States.",
+        "entity": [
+          "Barack Obama",
+          "George W. Bush",
+          "President of the United States"
+        ],
+        "relation": [
+          [
+            "Barack Obama",
+            "replaces",
+            "George W. Bush"
+          ],
+          [
+            "Barack Obama",
+            "position",
+            "President of the United States"
+          ]
+        ]
+      },
+      {
+        "sentence": "The United Kingdom replaced the United Kingdom of Great Britain and Ireland as its official name.",
+        "entity": [
+          "United Kingdom",
+          "United Kingdom of Great Britain and Ireland"
+        ],
+        "relation": [
+          [
+            "United Kingdom",
+            "replaces",
+            "United Kingdom of Great Britain and Ireland"
+          ],
+          [
+            "United Kingdom",
+            "official name",
+            "United Kingdom"
+          ]
+        ]
+      }
+    ]
+  },
+  "replaced by": {
+    "description": "\"replaced by\" refers to other person or item which continues the item by replacing it in its role. Use P156 (followed by) if the item is not replaced (e.g. books in a series), nor identical, but adds to the series without dropping the role of this item in that series.",
+    "examples": "Ptolemy XII Auletes replaced by Cleopatra; Canada East replaced by Quebec; George W. Bush replaced by Barack Obama"
+  },
+  "end time": {
+    "description": "\"end time\" refers to the time when the subject ceases to exist or when a statement about the subject stops being valid, the subject should not be a person.",
+    "examples": [
+      {
+        "sentence": "The Berlin Wall fell in November 1989, marking the end of the Cold War era.",
+        "entity": [
+          "Berlin Wall",
+          "Cold War era"
+        ],
+        "relation": [
+          [
+            "Berlin Wall",
+            "end time",
+            "November 1989"
+          ]
+        ]
+      },
+      {
+        "sentence": "The employment contract with the company ended on July 31, 2021.",
+        "entity": [
+          "employment contract",
+          "company"
+        ],
+        "relation": [
+          [
+            "employment contract",
+            "end time",
+            "July 31, 2021"
+          ]
+        ]
+      }
+    ]
+  },
+  "separated from": {
+    "description": "\"separated from\" refers to subject was founded or started by separating from identified object.",
+    "examples": "Presbyterian Church in America separated from Presbyterian Church in the United States; Article 1 \\u2013 Democratic and Progressive Movement separated from Democratic Party"
+  },
+  "available on platform": {
+    "description": "\"available on platform\" refers to platform for which a work was developed or released, or the specific platform version of a software product.",
+    "examples": "Minecraft platform Xbox 360; Grand Theft Auto IV platform PlayStation 3; Counter-Strike platform Xbox"
+  },
+  "platform": {
+    "description": "\"platform\" refers to platform for which a work was developed or released, or the specific platform version of a software product.",
+    "examples": "Minecraft platform Xbox 360; Grand Theft Auto IV platform PlayStation 3; Counter-Strike platform Xbox"
+  },
+  "belongs to genre": {
+    "description": "\"belongs to genre\" refers to the relationship between a creative work or an artist (subject) and the genre or field of work (object) it belongs to.",
+    "examples": "Winter in Wartime genre war film; Grand Theft Auto V genre action-adventure game; Basshunter genre Eurodance; Basshunter genre trance; Basshunter genre electronic dance music; Basshunter genre electro; Basshunter genre pop music; Basshunter genre techno; Ode to a Nightingale genre ode"
+  },
+  "genre": {
+    "description": "\"genre\" refers to creative work's genre or an artist's field of work (P101). Use main subject (P921) to relate creative works to their topic.",
+    "examples": "Winter in Wartime genre war film; Grand Theft Auto V genre action-adventure game; Basshunter genre Eurodance; Basshunter genre trance; Basshunter genre electronic dance music; Basshunter genre electro; Basshunter genre pop music; Basshunter genre techno; Ode to a Nightingale genre ode"
+  },
+  "created in language": {
+    "description": "\"created in language\" refers to language in which a film or a performance work was originally created.",
+    "examples": ""
+  },
+  "original language of work": {
+    "description": "\"original language of work\" refers to language in which a film or a performance work was originally created. Deprecated for written works and songs; use P407 (\"language of work or name\") instead..",
+    "examples": ""
+  },
+  "is territory claimed by": {
+    "description": "\"is territory claimed by\" refers to administrative divisions that claim control of a given area.",
+    "examples": "Senkaku Islands is territory claimed by Toucheng; Tonoshiro territory claimed by Japan; Golan Heights is territory claimed by Israel;"
+  },
+  "territory claimed by": {
+    "description": "\"territory claimed by\" refers to administrative divisions that claim control of a given area.",
+    "examples": "Senkaku Islands territory claimed by Toucheng; Tonoshiro territory claimed by Japan; Golan Heights territory claimed by Israel; Golan Heights territory claimed by Syria"
+  },
+  "originally broadcast by": {
+    "description": "\"originally broadcast by\" refers to the relationship between a radio or television program (subject) and the network(s) or service(s) (object) that originally aired or broadcasted it.",
+    "examples": "The Simpsons originally broadcast by Fox; Game of Thrones originally broadcast by HBO"
+  },
+  "original network": {
+    "description": "\"original network\" refers to network(s) or service(s) that originally broadcasted a radio or television program.",
+    "examples": ""
+  },
+  "produces": {
+    "description": "\"produces\" refers to the relationship between a government agency, business, industry, facility, or process (subject) and the material or product (object) that is produced by it.\"",
+    "examples": "Jaduguda Uranium Mine product or material produced uranium; Groningen gas field product or material produced natural gas; Airbus product or material produced Airbus A320 family"
+  },
+  "product or material produced": {
+    "description": "\"product or material produced\" refers to material or product produced by a government agency, business, industry, facility, or process.",
+    "examples": "Jaduguda Uranium Mine product or material produced uranium; Groningen gas field product or material produced natural gas; Airbus product or material produced Airbus A320 family"
+  }
+}
