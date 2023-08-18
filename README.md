@@ -246,7 +246,6 @@ bash run_13b_vicuna_v0.sh
 cd code/model_inference
 bash mode_test.sh
 ```
-<iframe height=498 width=510 src="">
 
 #### 自己数据集测试模式
 ```shell
