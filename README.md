@@ -223,7 +223,7 @@ cd code/data_process/
 bash data_process.sh
 ```
 ### train
-我们的代码参考自[FastChat](https://github.com/lm-sys/FastChat/tree/main)
+我们的代码参考自[FastChat](https://github.com/lm-sys/FastChat/tree/main)。
 在运行脚本前，需要指定脚本中的训练集路径以及checkpoint保存路径。
 ```shell
 cd code/model_train/vicuna_train
