@@ -238,6 +238,8 @@ def redocred_vicuna_inference_user_data():
             for entity in ori_entities:
                 if entity in sentences:
                     entities.append(entity)
+            if not entities:
+                print(f"sorry, but \"{ori_entities}\" seem not in sentences.")
             entities = list(set(entities))
             print("entities: ", entities)
             for subject in entities:
