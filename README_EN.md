@@ -1,10 +1,11 @@
-*Read this in [English](README_EN.md)*
+*Read this in [Chinese](README.md)*
 # Analysis-KG
-本仓库基于[Vicuna](https://github.com/lm-sys/FastChat/tree/main)模型，实现了可解释的英文语料知识抽取系统。
-## 介绍
-Analysis-KG 是基于[Vicuna](https://github.com/lm-sys/FastChat/tree/main)模型进行微调，实现了可解释的英文语料知识抽取系统。
-微调的训练数据集来源于[Re-DocRED](https://github.com/tonytan48/Re-DocRED)。
-我们实现了从句子中，一次性分析抽取多个relations，并且能够抽取出relation对应的多个triple facts，例如：
+This repository is built upon the [Vicuna](https://github.com/lm-sys/FastChat/tree/main) model and has realized an interpretable English text knowledge extraction system.
+
+## Introduction
+Analysis-KG is a fine-tuned model based on the [Vicuna](https://github.com/lm-sys/FastChat/tree/main) model, which has been developed to create an interpretable English text knowledge extraction system.
+The training dataset for fine-tuning is sourced from [Re-DocRED](https://github.com/tonytan48/Re-DocRED).
+We have achieved the capability to perform simultaneous analysis and extraction of multiple relations from a sentence. Furthermore, we can extract multiple triple facts corresponding to each relation. For example:
 ```python
 >>>Drossinis Museum is in the center of Kifisia , a northern suburb of Athens , and it is housed in \u201c Amaryllis \u201d villa , where Georgios Drossinis lived in his last years and which is named after a central character of one of his earliest and most popular works . The museum was founded in 1997 with the aim to preserve and promote Drossinis\u2019 ( 1859 - 1951 ) multidimensional work . Drossinis , along with Costis Palamas and Nikos Kampas co - founded the New Athenian School , the Greek literary \u2018 1880s Generation\u2019 , a movement which renewed Greek literature and fought for the establishment of modern Greek language ( \" Demotic \" ) The museum includes three halls , which are on the first floor , while the ground floor houses the Municipal Library of Kifisia , according to Drossinis \u2019s wish .
 
@@ -101,36 +102,33 @@ fact_analysis:  According to the subject and relation, the fact is that Drossini
 fact_analysis:  According to the subject and relation, the fact is that Georgios Drossinis spoke, wrote, or signed in Greek. This is evident from the passage which states that Drossinis lived in his last years and that he is named after a central character of his works, including the Greek literary "Democratic." Therefore, it can be concluded that Drossinis was fluent in the Greek language, indicating it was one of the languages he spoke, wrote, or signed.
 ['Georgios Drossinis', 'languages spoken, written or signed', 'Greek']
 ```
-## 依赖
-### 软件依赖
+## Dependencies
+### software dependence
 ```
-#运行微调和推理需要安装以下依赖
 pip3 install fschat
 ```
-### 硬件依赖
+### hardware dependence
 ```
-A100 40GB，单卡即可运行
+A100 40GB，single GPU works
 ```
 
-## 使用方法
+## Usage
 
-### 1.模型训练
+### 1.Model train
 
-#### 1) 数据准备
-当前的知识抽取数据集，大多是一个句子中只有一个relation，relation对应1个或者多个的fact。而现实场景中，一个句子其实会包含多个relation。为了得到含有多个relation并且标注良好的语料，我们通过对[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据的train_devised和dev_devised进行预处理。
-具体如下：
-##### 清晰定义relation descripiton
-[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集总共96个关系。但是存在的问题是：
-###### 1.relation的description不够清晰
-多个relation的表述不够清晰，例如`author`的关系中，不同的人，可能理解不同，可以将此理解为 `somebody is the author of somebook`，也可以理解为`somebook the author is somebody`, 如果没有清晰的定义，则会造成主体和客体混乱。
-###### 2.relation互相包含或者相反
-例如`member of`和`member of political party`，`member of sports team`其实可以统一为`member of`。
-另外例如 `participant`和`participant of`语义相反，保留其中一个即可。
-
-针对以上的问题，我们重新整理改造了relation，梳理出共64个relations，并且赋予了清晰明确的定义，更符合语言模型的理解。具体参见：
+#### 1) Data prepare
+The current knowledge extraction datasets mostly consist of sentences where there's only one relation, and that relation corresponds to one or multiple facts. However, in real-world scenarios, a sentence often contains multiple relations. To obtain well-annotated data with multiple relations, we performed preprocessing on the `train_devised` and `dev_devised` subsets of the [Re-DocRED](https://github.com/tonytan48/Re-DocRED) dataset.
+The process is as follows:
+##### Clearly Define Relationship Descriptions
+There are a total of 96 relationships in the dataset [Re-DocRED](https://github.com/tonytan48/Re-DocRED). However, there are certain issues that need to be addressed:
+###### 1.The relationship descriptions are not sufficiently clear
+The descriptions for multiple relationships are not sufficiently clear. For instance, in the case of the 'author' relationship, different individuals might interpret it differently. It can be understood as `somebody is the author of somebook` or `somebook is authored by somebody`. Without a clear definition, this ambiguity can lead to confusion between subjects and objects.
+###### 2.There is mutual inclusion or contradiction among relations.
+For example, the relationships `member of` and `member of political party` could be unified as `member of`. Additionally, relationships like `participant` and `participant of` have opposite semantics; keeping one of them would be sufficient.
+In response to the aforementioned issues, we have reorganized and refined the relationships. We have streamlined the total number of relationships to 64 and provided them with clear and unambiguous definitions, ensuring better alignment with the understanding of language models. For specific details, please refer to:
 [relation_map.json](https://github.com/bigdante/Analysis_KG/blob/main/data/relations_desc/relation_map.json)
 ##### 2) analysis process
-在对基础数据预处理后，我们通过ChatGPT和人工，使用prompt engineering，生成relation、subjects，以及fact的分析过程。并且为了后续的方便，我们将数据整理如下。
+After preprocessing the foundational data, we employed ChatGPT and human input, utilizing prompt engineering, to generate an analytical process for relationships, subjects, and corresponding facts. To facilitate future endeavors, we have organized the data as follows:
 ```python
 # one sample
 [{
@@ -215,57 +213,59 @@ A100 40GB，单卡即可运行
     ...
 ]
 ```
-通过运行脚本，即可完成vicuna训练数据准备。
-在此之前，需要下载[Re-DocRED](https://github.com/tonytan48/Re-DocRED)到data/redocred文件夹下。
-在data/chatgpt_count下的key.json文件中，按照所示的格式，添加可用的API keys（keys的数量越多，数据处理效率越高）。
-并在shell中指定训练数据保存的路径。【中间生成的数据将会保存在data/redocred文件夹下】
+By running the script, you can complete the preparation of training data for Vicuna.
+Before proceeding, you need to download [Re-DocRED](https://github.com/tonytan48/Re-DocRED) into the `data/redocred` folder.
+In the `data/chatgpt_count` directory, you should add available API keys in the format provided in the `key.json` file (having more keys improves data processing efficiency).
+Also, specify the path for saving the training data in the shell. [Intermediate generated data will be stored in the `data/redocred` folder.]
+
 ```shell
 cd code/data_process/
 bash data_process.sh
 ```
 ### train
-我们的代码参考自[FastChat](https://github.com/lm-sys/FastChat/tree/main)。
-在运行脚本前，需要指定脚本中的训练集路径以及checkpoint保存路径。
+Our code is derived from [FastChat](https://github.com/lm-sys/FastChat/tree/main).
+Before running the script, you need to specify the training dataset path and the checkpoint saving path within the script.
 ```shell
 cd code/model_train/vicuna_train
 bash train.sh
 ```
 
-### 推理
-#### 运行[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集，检查模型对每个relation的表现效果。
-首先下载[ckpt](https://cloud.tsinghua.edu.cn/d/ead42cf68f484c73af22/)。
+### Inference
+#### Test [Re-DocRED](https://github.com/tonytan48/Re-DocRED)
+Run the [Re-DocRED](https://github.com/tonytan48/Re-DocRED) dataset to assess the model's performance for each relation.
+First, download [ckpt](https://cloud.tsinghua.edu.cn/d/ead42cf68f484c73af22/)。
 ```shell
-# 在shell中指定ckpt路径，结果保存的路径, cuda_id。
+# Specify the `ckpt` path, the path for saving results, and the `cuda_id` in the shell.
 cd code/model_inference
 bash run_13b_vicuna_v0.sh
 ```
 #### 命令行测试模式
-命令行模式，用于手动逐个输入句子，体验效果。
+Command-line mode is used to manually input sentences one by one and experience the effects.
 <img width="1397" alt="image" src="https://github.com/bigdante/Analysis_KG/assets/39661185/efd07341-9e87-4508-be4a-cff1cd1ef346">
 
 ```shell
-# 需要在shell中指定预训练好的ckpt路径，cuda_id。
+# Specify the path to the pretrained checkpoint (ckpt) and the CUDA ID in the shell.
 cd code/model_inference
 bash mode_test.sh
 ```
 
 #### 自己数据集测试模式
 ```shell
-# 需要在shell中指定预训练好的ckpt路径，cuda_id。并且需要指定待验证数据集的路径，以及结果保存的路径
+# Specify the pre-trained `ckpt` path, `cuda_id`, the path of the dataset to be verified, and the path for saving the results in the shell.
 cd code/model_inference
 bash mode_test.sh
 ```
 
-#### chatgpt 验证
-我们实现了简易的基于ChatGPT turbo3.5的fact verification。用于校验生成的triple fact是否是正确的。
-在命令行测试模式下，添加参数，`--chatgpt_check`， 即可开启。
+#### chatgpt verify
+We have developed a simplified fact verification system based on ChatGPT Turbo 3.5. This system is used to validate whether the generated triple facts are accurate.
+In command-line testing mode, you can enable the functionality by adding the `--chatgpt_check` parameter.
 ```shell
-# 需要在shell中指定预训练好的ckpt路径，cuda_id。
+# Specify the `ckpt` path, the path for saving results, the `cuda_id` , and --chatgpt_check in the shell.
 cd code/model_inference
 bash mode_test.sh
 ```
 
-## 引用
+## Citation
 
 ```
 
