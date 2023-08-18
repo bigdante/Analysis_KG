@@ -1,8 +1,8 @@
 *Read this in [English](README_EN.md)*
 # Analysis-KG
-本仓库基于[Vicuna](https://github.com/lm-sys/FastChat/tree/main)模型，实现了可解释的英文语料知识抽取系统。
+本仓库基于[Vicuna 13b-v1.5](https://github.com/lm-sys/FastChat/tree/main)模型，实现了可解释的英文语料知识抽取系统。
 ## 介绍
-Analysis-KG 是基于[Vicuna](https://github.com/lm-sys/FastChat/tree/main)模型进行微调，实现了可解释的英文语料知识抽取系统。
+Analysis-KG 是基于[Vicuna 13b-v1.5](https://github.com/lm-sys/FastChat/tree/main)模型进行微调，实现了可解释的英文语料知识抽取系统。
 微调的训练数据集来源于[Re-DocRED](https://github.com/tonytan48/Re-DocRED)。
 我们实现了从句子中，一次性分析抽取多个relations，并且能够抽取出relation对应的多个triple facts，例如：
 ```python
@@ -198,7 +198,7 @@ cd code/data_process/
 bash data_process.sh
 ```
 
-### 微调vicuna模型
+### 微调vicuna-13b-v1.5模型
 我们的代码参考自[FastChat](https://github.com/lm-sys/FastChat/tree/main)。
 在运行脚本前，需要指定脚本中的训练集路径以及checkpoint保存路径。
 ```shell

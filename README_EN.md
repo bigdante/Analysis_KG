@@ -1,9 +1,9 @@
 *Read this in [Chinese](README.md)*
 # Analysis-KG
-This repository is built upon the [Vicuna](https://github.com/lm-sys/FastChat/tree/main) model and has realized an interpretable English text knowledge extraction system.
+This repository is built upon the [vicuna-13b-v1.5](https://github.com/lm-sys/FastChat/tree/main) model and has realized an interpretable English text knowledge extraction system.
 
 ## Introduction
-Analysis-KG is a fine-tuned model based on the [Vicuna](https://github.com/lm-sys/FastChat/tree/main) model, which has been developed to create an interpretable English text knowledge extraction system.
+Analysis-KG is a fine-tuned model based on the [vicuna-13b-v1.5](https://github.com/lm-sys/FastChat/tree/main) model, which has been developed to create an interpretable English text knowledge extraction system.
 The training dataset for fine-tuning is sourced from [Re-DocRED](https://github.com/tonytan48/Re-DocRED).
 We have achieved the capability to perform simultaneous analysis and extraction of multiple relations from a sentence. Furthermore, we can extract multiple triple facts corresponding to each relation. For example:
 ```python
@@ -197,7 +197,7 @@ Also, specify the path for saving the training data in the shell. [Intermediate 
 cd code/data_process/
 bash data_process.sh
 ```
-### finetune vicuna model
+### finetune vicuna-13b-v1.5 model
 Our code is derived from [FastChat](https://github.com/lm-sys/FastChat/tree/main).
 Before running the script, you need to specify the training dataset path and the checkpoint saving path within the script.
 ```shell
