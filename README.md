@@ -240,11 +240,14 @@ bash run_13b_vicuna_v0.sh
 ```
 #### 命令行测试模式
 命令行模式，用于手动逐个输入句子，体验效果。
+![web-demo](resource/vicuna_inference.gif)
 ```shell
 # 需要在shell中指定预训练好的ckpt路径，cuda_id。
 cd code/model_inference
 bash mode_test.sh
 ```
+<iframe height=498 width=510 src="">
+
 #### 自己数据集测试模式
 ```shell
 # 需要在shell中指定预训练好的ckpt路径，cuda_id。并且需要指定待验证数据集的路径，以及结果保存的路径
