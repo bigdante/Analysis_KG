@@ -206,7 +206,7 @@ bash train.sh
 ```
 
 ### Inference
-#### Test [Re-DocRED](https://github.com/tonytan48/Re-DocRED)
+#### Test Re-DocRED
 Run the [Re-DocRED](https://github.com/tonytan48/Re-DocRED) dataset to assess the model's performance for each relation.
 First, download [ckpt](https://cloud.tsinghua.edu.cn/d/ead42cf68f484c73af22/)。
 ```shell
