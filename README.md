@@ -232,9 +232,9 @@ bash train.sh
 
 ### 推理
 
-### 运行[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集，检查效果
+#### 运行[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集，检查效果
 
-### 命令行测试模式
+#### 命令行测试模式
 
 ```shell
     
