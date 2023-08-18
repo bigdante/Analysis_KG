@@ -82,7 +82,6 @@ def make_chat_request(prompt, max_length=2048, timeout=10, max_retries=5):
                         "max_tokens": max_length,
                     },
                     # timeout=10,
-                    proxies=proxies,
             ) as resp:
                 if resp.status_code == 200:
                     used_keys.remove(key)
