@@ -214,7 +214,7 @@ First, download [ckpt](https://cloud.tsinghua.edu.cn/d/ead42cf68f484c73af22/)。
 cd code/model_inference
 bash run_13b_vicuna_v0.sh
 ```
-#### 命令行测试模式
+#### Command-line mode
 Command-line mode is used to manually input sentences one by one and experience the effects.
 <img width="1397" alt="image" src="https://github.com/bigdante/Analysis_KG/assets/39661185/efd07341-9e87-4508-be4a-cff1cd1ef346">
 
@@ -224,7 +224,7 @@ cd code/model_inference
 bash mode_test.sh
 ```
 
-#### 自己数据集测试模式
+#### Test personal dataset
 ```shell
 # Specify the pre-trained `ckpt` path, `cuda_id`, the path of the dataset to be verified, and the path for saving the results in the shell.
 cd code/model_inference
