@@ -241,6 +241,16 @@ bash run_13b_vicuna_v0.sh
 #### 命令行测试模式
 命令行模式，用于手动逐个输入句子，体验效果。
 ![web-demo](resources/vicuna%20(online-video-cutter.com).mp4)
+<iframe 
+src="https://github.com/bigdante/Analysis_KG/blob/main/resources/vicuna%20(online-video-cutter.com).mp4" 
+scrolling="no" 
+border="0" 
+frameborder="no" 
+framespacing="0" 
+allowfullscreen="true" 
+height=600 
+width=800> 
+</iframe>
 ```shell
 # 需要在shell中指定预训练好的ckpt路径，cuda_id。
 cd code/model_inference

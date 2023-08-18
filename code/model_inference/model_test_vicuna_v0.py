@@ -1,7 +1,10 @@
 import argparse
 import json
+import random
 import time
 import torch
+import requests
+
 from transformers import (
     AutoTokenizer,
     AutoModelForCausalLM
@@ -28,6 +31,74 @@ changed_relation = relation_map.get("change_name")
 inverse_relation = relation_map.get("inverse_name")
 rel_info = json.load(open("../../data/redocred/rel_info.json"))
 
+chat_gpt_cout_file = "keys.json"
+ori_keys = json.load(open(f"../../data/chatgpt_count/{chat_gpt_cout_file}"))
+keys = [key for key, v in ori_keys.items() if v['label']]
+unused_keys = keys.copy()
+used_keys = []
+overload_keys = []
+invalid_keys = []
+
+
+def get_valid_key():
+    global unused_keys, used_keys, overload_keys
+    current_time = time.time()
+    new_overload_keys = []
+    for key, timestamp in overload_keys:
+        if current_time - timestamp >= 60:
+            unused_keys.append(key)
+        else:
+            new_overload_keys.append((key, timestamp))
+    overload_keys = new_overload_keys
+    while not unused_keys:
+        time.sleep(5)
+    key = random.choice(unused_keys)
+    unused_keys.remove(key)
+    used_keys.append(key)
+    return key
+
+
+def make_chat_request(prompt, max_length=2048, timeout=10, max_retries=5):
+    message = [
+        {"role": "user", "content": prompt}
+    ]
+    global unused_keys, used_keys, overload_keys
+    for index in range(max_retries):
+        key = get_valid_key()
+        try:
+            with requests.post(
+                    url=f"https://api.openai.com/v1/chat/completions",
+                    headers={"Authorization": f"Bearer {key}"},
+                    json={
+                        "model": "gpt-3.5-turbo",
+                        "temperature": 1.0,
+                        "messages": message,
+                        "max_tokens": max_length,
+                    },
+                    # timeout=10,
+                    proxies=proxies,
+            ) as resp:
+                if resp.status_code == 200:
+                    used_keys.remove(key)
+                    unused_keys.append(key)
+                    return json.loads(resp.content)
+                else:
+                    try:
+                        if json.loads(resp.content).get('error'):
+                            if json.loads(resp.content).get('error')['message'] == "You exceeded your current quota, please check your plan and billing details.":
+                                invalid_keys.append(key)
+                            else:
+                                overload_keys.append((key, time.time()))
+                        else:
+                            print("response error: ", resp.content)
+                            overload_keys.append((key, time.time()))
+                    except:
+                        print("error: ", resp.content)
+        except requests.exceptions.RequestException as e:
+            print("request error", e)
+            used_keys.remove(key)
+            unused_keys.append(key)
+            timeout += 5
 
 def get_relation_list_description():
     data = json.load(open("../../data/relations_desc/relation_description.json"))
@@ -154,6 +225,7 @@ def redocred_vicuna_inference_user_data():
                 facts = []
                 try:
                     for fact in fact_list.split("\n"):
+
                         facts.append(eval(fact.replace("['", '["').replace("']", '"]').replace("', '", '", "')))
                     facts = [list(x) for x in set(tuple(x) for x in facts)]
                     print("split facts: ", fact_list.split("\n"))
@@ -178,6 +250,7 @@ if __name__ == '__main__':
     parser.add_argument('--ckpt_path', required=True, help='Path to checkpoint')
     parser.add_argument('--data_path', required=False, help='Path to data', default="")
     parser.add_argument('--save_path', required=False, help='Path to save', default="")
+    parser.add_argument('--chatgpt_check', required=False, help='if chatgpt check', default=False)
     args = parser.parse_args()
     cuda_id = args.index
     model_path = args.ckpt_path
