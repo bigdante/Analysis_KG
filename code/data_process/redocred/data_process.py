@@ -51,16 +51,6 @@ def filter_redocred_data(if_filter=False):
             json.dump(data, out, indent=4)
 
 
-def make_one_relation_train(relation):
-    data = json.load(open(f"./train_data/train_explanation_more_detail_filtered.json"))
-    save = []
-    for sample in data:
-        if relation in sample['relations']:
-            save.append(sample)
-    create_file_with_path(file_path=f"./train_data/{relation}/{relation}.json")
-    json.dump(save, open(f"./train_data/{relation}/{relation}.json", "w"), indent=4)
-    make_vicuna_train(filelist=[f"./train_data/{relation}/{relation}.json"],
-                      save_path=f"./train_data/{relation}/vicuna_train.json")
 
 
 def get_train_relation_count(path, save_path):
@@ -80,16 +70,13 @@ if __name__ == '__main__':
     parser.add_argument('--save_path', required=True, help='Path to save processed data')
     args = parser.parse_args()
     save_path = args.save_path
-
     for file in ["../../../data/redocred/train_revised.json", "../../../data/redocred/dev_revised.json"]:
         save_path = f"../../../data/redocred/train_revised_sentence.json" if "train" in file else f"../../../data/redocred/dev_revised_sentence.json"
         make_ori_data(file, save_path=save_path)
-        # 统计数据情况
         relation_count_save_path = f"../../../data/redocred/train_relation_count.json" if "train" in file else f"../../../data/redocred/dev_relation_count.json"
         get_train_relation_count(save_path, save_path=relation_count_save_path)
         explanation_detail_save_path = f"../../../data/redocred/train_explanation_detail.json" if "train" in file else f"../../../data/redocred/dev_explanation_detail.json"
         make_redocred_data_parallel(source_file=save_path, save_file=explanation_detail_save_path)
-    # 之后根据需要，对relation的数量进行筛选，减轻数据不平衡。
     filter_redocred_data(if_filter=True)
     get_train_relation_count(path=f"../../../data/redocred/train_dev_explanation_detail_filtered.json",
                              save_path=f"../../../data/redocred/train_dev_explanation_detail_relations_filtered.json")
