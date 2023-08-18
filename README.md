@@ -240,8 +240,9 @@ bash run_13b_vicuna_v0.sh
 ```
 #### 命令行测试模式
 命令行模式，用于手动逐个输入句子，体验效果。
+![web-demo](resources/vicuna%20(online-video-cutter.com).gif)
 <video id="video" controls="" preload="none" poster="封面">
-      <source id="mp4" src="resources/vicuna.mp4" type="video/mp4"">
+      <source id="mp4" src="mp4格式视频" type="resources/vicuna.mp4">
 </videos>
 
 ```shell
