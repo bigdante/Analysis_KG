@@ -254,6 +254,15 @@ cd code/model_inference
 bash mode_test.sh
 ```
 
+#### chatgpt 验证
+我们实现了简易的基于ChatGPT turbo3.5的fact verification。用于校验生成的triple fact是否是正确的。
+在命令行测试模式下，添加参数，`--chatgpt_check True`， 即可开启。
+```shell
+# 需要在shell中指定预训练好的ckpt路径，cuda_id。
+cd code/model_inference
+bash mode_test.sh
+```
+
 ## 引用
 
 ```
