@@ -25,6 +25,12 @@ fact_template = "Given relation description: \"{description}\", the passage: \"{
 fact_list_template = "After analyzing the relation description: \"{description}\", the passage: \"{sentences}\", and considering the subject of the relation: \"{subject}\", " \
                      "we have conducted an analysis of the facts as: \"{facts_analysis}\". Based on this analysis, we have derived the following facts: "
 
+fact_check_prompt = f"You are a fact checker expert.\n" \
+                    "I have passage : \"{sentence}\"\n" \
+                    "One possible fact I get from the passage is: \"{fact}\"\n" \
+                    "The relation description is: \"{relation_desc}\"\n" \
+                    "According to the passage and relation description, Is the fact right? yor answer must only be \"【right】\"or \"【wrong】\"."
+
 relation_map = json.load(open("../../data/relations_desc/relation_map.json"))
 unchanged_relation = relation_map.get("unchanged_name")
 changed_relation = relation_map.get("change_name")
@@ -99,6 +105,7 @@ def make_chat_request(prompt, max_length=2048, timeout=10, max_retries=5):
             used_keys.remove(key)
             unused_keys.append(key)
             timeout += 5
+
 
 def get_relation_list_description():
     data = json.load(open("../../data/relations_desc/relation_description.json"))
@@ -180,9 +187,26 @@ def redocred_vicuna_inference():
                 print("fact_analysis: ", fact_analysis)
                 fact_list_prompt = fact_list_template.format(description=relation_desc.get(relation), sentences=sentences, subject=subject, facts_analysis=fact_analysis)
                 fact_list = inference(model, tokenizer, fact_list_prompt)
-                for fact in fact_list.split("\n"):
+                facts = []
+                try:
+                    for fact in fact_list.split("\n"):
+                        facts.append(eval(fact.replace("['", '["').replace("']", '"]').replace("', '", '", "')))
+                except:
+                    print("wrong eval fact : ", fact_list)
+                for fact in facts:
+                    fact = eval(fact)
                     fact[0] = subject
-                    print(fact)
+                    if not args.chatgpt_check:
+                        prompt = fact_check_prompt.format(fact=fact, sentence=sentences, relation_desc=relation_desc.get(fact[1]))
+                        check = make_chat_request(prompt)['choices'][0]['message']['content']
+                        if check.lower == "【right】" or check.lower == "right" or "【right】" in check or "【Right】" in check or "Right" in check:
+                            print(f"fact: {fact}, ChatGPT check: {True}")
+                        elif check.lower == "【wrong】" or check.lower == "wrong" or "【wrong】" in check or "【Wrong】" in check or "Wrong" in check:
+                            print(f"fact: {fact}, ChatGPT check: {False}")
+                        else:
+                            print(f"fact: {fact}, ChatGPT check: {check}")
+                    else:
+                        print(fact)
         print("=" * 150)
 
 
@@ -225,15 +249,23 @@ def redocred_vicuna_inference_user_data():
                 facts = []
                 try:
                     for fact in fact_list.split("\n"):
-
                         facts.append(eval(fact.replace("['", '["').replace("']", '"]').replace("', '", '", "')))
-                    facts = [list(x) for x in set(tuple(x) for x in facts)]
+                    # facts = [list(x) for x in set(tuple(x) for x in facts)]
                     print("split facts: ", fact_list.split("\n"))
                 except:
                     print("wrong eval fact : ", fact_list)
                 print("facts: ", facts)
                 for fact in facts:
+                    fact = eval(fact)
                     fact[0] = subject
+                    prompt = fact_check_prompt.format(fact=fact, sentence=sentences, relation_desc=relation_desc.get(fact[1]))
+                    check = make_chat_request(prompt)['choices'][0]['message']['content']
+                    if check.lower == "【right】" or check.lower == "right" or "【right】" in check or "【Right】" in check or "Right" in check:
+                        print(f"fact: {fact}, ChatGPT check: {True}")
+                    elif check.lower == "【wrong】" or check.lower == "wrong" or "【wrong】" in check or "【Wrong】" in check or "Wrong" in check:
+                        print(f"fact: {fact}, ChatGPT check: {False}")
+                    else:
+                        print(f"fact: {fact}, ChatGPT check: {check}")
                 result[relation] = facts
         save.append({
             "text": sentences,
