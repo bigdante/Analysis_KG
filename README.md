@@ -126,13 +126,13 @@ A100 40GB，单卡即可运行
 例如`member of`和`member of political party`，`member of sports team`其实可以统一为`member of`。
 另外例如 `participant`和`participant of`语义相反，保留其中一个即可。
 
-针对以上的问题，我们重新整理改造了relation，梳理出共64个relations，并且赋予了清晰明确的定义，更符合语言模型的理解。
-
+针对以上的问题，我们重新整理改造了relation，梳理出共64个relations，并且赋予了清晰明确的定义，更符合语言模型的理解。具体参见：
+[relation_map.json](https://github.com/bigdante/Analysis_KG/blob/main/data/relations_desc/relation_map.json)
 ##### 2) analysis process
-在对基础数据预处理后，我们通过ChatGPT和人工，使用prompt engineering，生成relation、subjects，以及fact的分析过程。
+在对基础数据预处理后，我们通过ChatGPT和人工，使用prompt engineering，生成relation、subjects，以及fact的分析过程。并且为了后续的方便，我们将数据整理如下。
 ```python
 # one sample
-{
+[{
         "index": 0,
         "passage": "Niklas Bergqvist ( born 6 October 1962 in Stockholm ) , is a Swedish songwriter , producer and musician . After the band split - up in 1987 , Bergqvist formed and played in several other bands until he decided to focus more on songwriting , resulting in several releases ever since .",
         "relations": [
@@ -211,19 +211,24 @@ A100 40GB，单卡即可运行
             }
         }
     },
+    ...
+]
 ```
+通过运行脚本，即可完成vicuna训练数据准备。
+在此之前，需要下载[Re-DocRED](https://github.com/tonytan48/Re-DocRED)到data/redocred文件夹下。
+在data/chatgpt_count下的key.json文件中，按照所示的格式，添加可用的API keys（keys的数量越多，数据处理效率越高）。
+并在shell中指定训练数据保存的路径。【中间生成的数据将会保存在data/redocred文件夹下】
 ```shell
-python code/data_prepare/data_process.py
+cd code/data_process/
+bash data_process.sh
 ```
-具体的，我们将triple对应的evidence句子进行组合，作为这个passage。并且将相同的passage下的所有triple进行合并。
-
-
-运行以下指令进行训练：
+### train
+我们的代码参考自[FastChat](https://github.com/lm-sys/FastChat/tree/main)
+在运行脚本前，需要指定脚本中的训练集路径以及checkpoint保存路径。
 ```shell
+cd code/model_train/vicuna_train
 bash train.sh
 ```
-`train.sh` 中的 `PRE_SEQ_LEN` 和 `LR` 分别是 soft prompt 长度和训练的学习率，可以进行调节以取得最佳的效果。P-Tuning-v2 方法会冻结全部的模型参数，可通过调整 `quantization_bit` 来被原始模型的量化等级，不加此选项则为 FP16 精度加载。
-
 在默认配置 `quantization_bit=4`、`per_device_train_batch_size=1`、`gradient_accumulation_steps=16` 下，INT4 的模型参数被冻结，一次训练迭代会以 1 的批处理大小进行 16 次累加的前后向传播，等效为 16 的总批处理大小，此时最低只需 6.7G 显存。若想在同等批处理大小下提升训练效率，可在二者乘积不变的情况下，加大 `per_device_train_batch_size` 的值，但也会带来更多的显存消耗，请根据实际情况酌情调整。
 
 如果你想要[从本地加载模型](../README.md#从本地加载模型)，可以将 `train.sh` 中的 `THUDM/chatglm2-6b` 改为你本地的模型路径。

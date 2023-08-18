@@ -1,7 +1,7 @@
 import multiprocessing
 from tqdm import tqdm
 from data_utils import *
-
+import argparse
 
 def make_redocred_data_parallel(save_file, source_file):
     """
@@ -76,32 +76,28 @@ def get_train_relation_count(path, save_path):
 
 
 if __name__ == '__main__':
-    # 首先对原始数据，添加不同格式的分析，一次完成，就不要浪费key的资源了。
-    # for file in ["../../../data/redocred/train_revised.json", "../../../data/redocred/dev_revised.json"]:
-    #     save_path = f"../../../data/redocred/train_revised_sentence.json" if "train" in file else f"../../../data/redocred/dev_revised_sentence.json"
-    #     make_ori_data(file, save_path=save_path)
-    #     relation_count_save_path = f"../../../data/redocred/train_relation_count.json" if "train" in file else f"../../../data/redocred/dev_relation_count.json"
-    #     get_train_relation_count(save_path, save_path=relation_count_save_path)
-    #     explanation_detail_save_path = f"../../../data/redocred/train_explanation_detail.json" if "train" in file else f"../../../data/redocred/dev_explanation_detail.json"
-    #     make_redocred_data_parallel(source_file=save_path, save_file=explanation_detail_save_path)
-    # 之后根据需要，对relation的数量进行筛选。
+    parser = argparse.ArgumentParser(description='Data processing script')
+    parser.add_argument('--save_path', required=True, help='Path to save processed data')
+    args = parser.parse_args()
+    save_path = args.save_path
+
+    for file in ["../../../data/redocred/train_revised.json", "../../../data/redocred/dev_revised.json"]:
+        save_path = f"../../../data/redocred/train_revised_sentence.json" if "train" in file else f"../../../data/redocred/dev_revised_sentence.json"
+        make_ori_data(file, save_path=save_path)
+        # 统计数据情况
+        relation_count_save_path = f"../../../data/redocred/train_relation_count.json" if "train" in file else f"../../../data/redocred/dev_relation_count.json"
+        get_train_relation_count(save_path, save_path=relation_count_save_path)
+        explanation_detail_save_path = f"../../../data/redocred/train_explanation_detail.json" if "train" in file else f"../../../data/redocred/dev_explanation_detail.json"
+        make_redocred_data_parallel(source_file=save_path, save_file=explanation_detail_save_path)
+    # 之后根据需要，对relation的数量进行筛选，减轻数据不平衡。
     filter_redocred_data(if_filter=True)
     get_train_relation_count(path=f"../../../data/redocred/train_dev_explanation_detail_filtered.json",
                              save_path=f"../../../data/redocred/train_dev_explanation_detail_relations_filtered.json")
-    filter_redocred_data(if_filter=False)
-    get_train_relation_count(path=f"../../../data/redocred/train_dev_explanation_detail_unfiltered.json",
-                             save_path=f"../../../data/redocred/train_dev_explanation_detail_relations_unfiltered.json")
-    # # v0 analysis
-    make_vicuna_train_analysis_v0(file=f"../../../data/redocred/train_dev_explanation_detail_filtered.json", save_path=f"../../../data/train_data/v0/vicuna_train.json")
-    make_vicuna_train_analysis_v1(file=f"../../../data/redocred/train_dev_explanation_detail_filtered.json", save_path=f"../../../data/train_data/v1/vicuna_train.json")
-    make_vicuna_train_analysis_v2(file=f"../../../data/redocred/train_dev_explanation_detail_filtered.json", save_path=f"../../../data/train_data/v2/vicuna_train.json")
-    make_chatglm2_train_v0(file=f"../../../data/redocred/train_dev_explanation_detail_filtered.json", save_path=f"../../../data/train_data/v0/chatglm_train.json")
-
-    # vo test data
-    # test_relations = list(set(list(changed_relation.values()) + list(inverse_relation.values()) + unchanged_relation))
-    # for relation in relation_descript.keys():
-    #     if relation not in test_relations:
-    #         continue
-    #     make_ori_data("../../../data/redocred/test_revised.json", save_path=f"../../../data/test_data_important/{relation}.json", test_relation=relation)
-
-    # make_ori_data("../../../data/redocred/test_revised.json", save_path=f"../../../data/test_data_important/all.json")
+    make_vicuna_train_analysis_v0(file=f"../../../data/redocred/train_dev_explanation_detail_filtered.json", save_path=save_path)
+    # test data
+    test_relations = list(set(list(changed_relation.values()) + list(inverse_relation.values()) + unchanged_relation))
+    for relation in relation_descript.keys():
+        if relation not in test_relations:
+            continue
+        make_ori_data("../../../data/redocred/test_revised.json", save_path=f"../../../data/test_data_important/{relation}.json", test_relation=relation)
+    make_ori_data("../../../data/redocred/test_revised.json", save_path=f"../../../data/test_data_important/all.json")
