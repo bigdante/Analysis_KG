@@ -1,11 +1,10 @@
+import argparse
 import json
 import os
-import re
 import sys
 import time
 from collections import defaultdict, OrderedDict
 from pathlib import Path
-import subprocess
 import torch
 from tqdm import tqdm
 from transformers import (
@@ -47,14 +46,6 @@ def get_relation_list_description():
 relation_desc = get_relation_list_description()
 
 
-def get_relation_list_description():
-    data = json.load(open("./relation_description.json"))
-    result = {}
-    for k, v in data.items():
-        result[k] = v['description']
-    json.dump(result, open("./relation_list.json", "w"), indent=4)
-    return result
-
 
 def get_model_nodes(cudaid, model_path):
     if cudaid == 7:
@@ -91,24 +82,7 @@ def create_file_with_path(file_path):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.touch()
 
-
-def get_node_from_ip(ifname='eth0'):
-    result = subprocess.run(['ifconfig', ifname], stdout=subprocess.PIPE)
-    output = result.stdout.decode()
-    ip_address = re.search(r'inet (\d+\.\d+\.\d+\.\d+)', output)
-    if not ip_address:
-        return 'Unknown node'
-    ip_address = ip_address.group(1)
-    ip_to_node = {
-        '192.69.107.248': '0',
-        '192.4.183.6': '1',
-        '192.216.99.31': '2'
-    }
-    node_identifier = ip_to_node.get(ip_address, 'Unknown node')
-    return node_identifier
-
-
-def process_evaluation_data(evaluation_data, node, cuda_id):
+def process_evaluation_data(evaluation_data, cuda_id):
     data = evaluation_data
     cuda_chunk_size = len(data) // 8
     cuda_start, cuda_end = cuda_id * cuda_chunk_size, (cuda_id + 1) * cuda_chunk_size
@@ -120,7 +94,7 @@ def process_evaluation_data(evaluation_data, node, cuda_id):
 
 def redocred_vicuna_inference(test_relation=None, result_save_path=None):
     redocred_test_data = json.load(open(f"../../data/test_data_important/{test_relation}.json"))
-    data = process_evaluation_data(redocred_test_data, node, cuda_id)
+    data = process_evaluation_data(redocred_test_data, cuda_id)
     tp = 0
     fp = 0
     wrong_list = []
@@ -256,262 +230,6 @@ def redocred_vicuna_inference(test_relation=None, result_save_path=None):
     if right_list:
         create_file_with_path(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id + node * 8}.json")
         json.dump(right_list, open(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id + node * 8}.json", "w"), indent=4)
-
-
-def redocred_vicuna_inference_n(test_relation=None, result_save_path=None):
-    redocred_test_data = json.load(open(f"../../data/test_data_important/{test_relation}.json"))
-    node = 0
-    data = process_evaluation_data(redocred_test_data, node, cuda_id)
-    tp = 0
-    fp = 0
-    wrong_list = []
-    right_list = []
-    for sample in tqdm(data):
-        wrong = []
-        right = []
-        miss = []
-        sentence = sample['passage']
-        relation_prompt = relation_template.format(sentences=sentence)
-        relation_analysis = inference(model, tokenizer, relation_prompt)
-        relation_list_prompt = relation_list_template.format(relation_analysis=relation_analysis)
-        relation_list = inference(model, tokenizer, relation_list_prompt)
-        try:
-            relations = eval(relation_list)
-            print(relations)
-            if test_relation != "all":
-                if test_relation not in relations:
-                    wrong_list.append({
-                        "text": sentence,
-                        "relation_analysis": relation_analysis,
-                        "predict_wrong_relations": relations,
-                        "miss_fact_list": [s_f_l for s_f_l in sample['same_fact_list'] if s_f_l[0][1] == test_relation],
-                        "true_fact_list": sample['same_fact_list']
-                    })
-                    continue
-                else:
-                    relations = [test_relation]
-        except:
-            print("wrong eval relation: ", relation_list)
-            wrong_list.append({
-                "text": sentence,
-                "relation_analysis": relation_analysis,
-                "eval_wrong_relations": relation_list,
-                "miss_fact_list": [s_f_l for s_f_l in sample['same_fact_list'] if s_f_l[0][1] == test_relation],
-                "true_fact_list": sample['same_fact_list']
-            })
-            continue
-
-        print("relations: ", relations)
-        for relation in list(set(list(relations))):
-            print(f"================================={relation}=================================")
-            subjects_prompt = entity_template.format(description=relation_desc.get(relation), sentences=sentence)
-            subjects_analysis = inference(model, tokenizer, subjects_prompt)
-            entity_list_prompt = entity_list_template.format(description=relation_desc.get(relation), sentences=sentence, subjects_analysis=subjects_analysis)
-            entity_list = inference(model, tokenizer, entity_list_prompt)
-            try:
-                entities = eval(entity_list.replace("\"", "'").replace("['", '["').replace("']", '"]').replace("', '", '", "'))
-            except:
-                print("wrong eval entity: ", entity_list)
-                wrong_list.append({
-                    "text": sentence,
-                    "relation_analysis": relation_analysis,
-                    "predict_relations": relations,
-                    "subjects_analysis": subjects_analysis,
-                    "eval_wrong_subjects": entity_list,
-                    "miss_fact_list": [s_f_l for s_f_l in sample['same_fact_list'] if s_f_l[0][1] == test_relation],
-                    "true_fact_list": sample['same_fact_list']
-                })
-                continue
-            fact_index = []
-            entities = list(set(entities))
-            for subject in entities:
-                fact_analysis_prompt = fact_template.format(description=relation_desc.get(relation), sentences=sentence, subject=subject)
-                fact_analysis = inference(model, tokenizer, fact_analysis_prompt)
-                fact_list_prompt = fact_list_template.format(description=relation_desc.get(relation), sentences=sentence, subject=subject, facts_analysis=fact_analysis)
-                fact_list = inference(model, tokenizer, fact_list_prompt)
-                try:
-                    facts = eval(fact_list.replace("\"", "'").replace("['", '["').replace("']", '"]').replace("', '", '", "').replace(": '", ": \"").replace("'}", "\"}"))
-                    facts = [list(x) for x in set(tuple(x) for x in facts)]
-                except:
-                    print("wrong eval fact : ", fact_list)
-                    wrong_list.append({
-                        "text": sentence,
-                        "relation_analysis": relation_analysis,
-                        "predict_relations": relations,
-                        "subjects_analysis": subjects_analysis,
-                        "subjects_list": entities,
-                        "fact_analysis": fact_analysis,
-                        "eval_wrong_facts": fact_list,
-                        "miss_fact_list": [s_f_l for s_f_l in sample['same_fact_list'] if s_f_l[0][1] == test_relation],
-                        "true_fact_list": sample['same_fact_list']
-                    })
-                    continue
-                print("facts: ", facts)
-                for fact in facts:
-                    flag = 0
-                    for index, true_fact in enumerate(sample['same_fact_list']):
-                        if fact in true_fact:
-                            flag = 1
-                            if index not in fact_index:
-                                tp += 1
-                                right.append({
-                                    "fact": fact,
-                                    "fact_analysis": fact_analysis,
-                                })
-                                fact_index.append(index)
-                    if not flag:
-                        fp += 1
-                        wrong.append({
-                            "fact": fact,
-                            "fact_analysis": fact_analysis,
-                        })
-            miss = [s_f_l for i, s_f_l in enumerate(sample['same_fact_list']) if i not in fact_index]
-        if wrong or miss:
-            wrong_list.append({
-                "text": sentence,
-                "relation_analysis": relation_analysis,
-                "predict_relations": relations,
-                "wrong_fact_list": wrong,
-                "miss_fact_list": miss,
-                "true_fact_list": sample['same_fact_list']
-            })
-        if right:
-            right_list.append({
-                "text": sentence,
-                "relation_analysis": relation_analysis,
-                "predict_relations": relations,
-                "right_fact_list": right,
-                "true_fact_list": sample['same_fact_list']
-            })
-    node = 0
-    if wrong_list:
-        create_file_with_path(f"{result_save_path}/{test_relation}/wrong_redocred_{cuda_id + node * 8}.json")
-        json.dump(wrong_list, open(f"{result_save_path}/{test_relation}/wrong_redocred_{cuda_id + node * 8}.json", "w"), indent=4)
-    if right_list:
-        create_file_with_path(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id + node * 8}.json")
-        json.dump(right_list, open(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id + node * 8}.json", "w"), indent=4)
-
-
-def redocred_vicuna_analysis_entity(test_relation=None, result_save_path=None):
-    redocred_test_data = json.load(open(f"../../test_ori_important/{test_relation}.json"))
-    data = process_evaluation_data(redocred_test_data, node, cuda_id)
-    tp = 0
-    fp = 0
-    wrong_list = []
-    right_list = []
-    for sample in tqdm(data):
-        wrong = []
-        right = []
-        sentence = sample['passage']
-        # print("=" * 100)
-        # print(sentence)
-        # print("-" * 100)
-        # print(f"true fact: {sample['same_fact_list']}")
-        # print("-" * 100)
-        relation_prompt = relation_template.format(sentences=sentence)
-        relations = inference(model, tokenizer, relation_prompt)
-        try:
-            relations = relations.replace("{'", "{\"").replace("':", "\":").replace(":\'", ":\"").replace(": \'", ": \"").replace("\',", "\",").replace("'}", "\"}").replace(", '",
-                                                                                                                                                                             ", \"").replace(
-                ",'", ",\"")
-            print(relations)
-            relations = eval(relations)
-            ori_relations = relations.copy()
-            if test_relation not in relations:
-                wrong_list.append({
-                    "text": sentence,
-                    "predict_relations": list(set(list(ori_relations.keys()))),
-                    "miss_fact_list": [s_f_l for s_f_l in sample['same_fact_list'] if s_f_l[0][1] == test_relation],
-                    "true_fact_list": sample['same_fact_list']
-                })
-                continue
-            else:
-                relations = {test_relation: relations[test_relation]}
-        except:
-            wrong_list.append({
-                "text": sentence,
-                "predict_wrong_relations": relations,
-                "miss_fact_list": [s_f_l for s_f_l in sample['same_fact_list'] if s_f_l[0][1] == test_relation],
-                "true_fact_list": sample['same_fact_list']
-            })
-            continue
-        for relation in list(set(list(relations.keys()))):
-            print(f"================================={relation}=================================")
-            relation_description = relation_desc.get(relation)
-            entity_prompt = entity_template.format(sentences=sentence, description=relation_description)
-            entities = inference(model, tokenizer, entity_prompt)
-            try:
-                entities = eval(entities)
-                ori_entities = entities.copy()
-            except:
-                try:
-                    entities = eval(
-                        entities.replace("{'", "{\"").replace("':", "\":").replace(":\'", ":\"").replace(": \'", ": \"").replace("\',", "\",").replace("'}", "\"}").replace(", '",
-                                                                                                                                                                            ", \"").replace(
-                            ",'", ",\""))
-                except:
-                    print("wrong entity:", entities)
-                    continue
-            fact_index = []
-            entities = list(set(list(entities.keys())))
-            for entity in entities:
-                fact_prompt = fact_template.format(sentences=sentence, description=relation_description, subject=entity, relation=relation, fact=(entity, relation))
-                facts = inference(model, tokenizer, fact_prompt)
-                try:
-                    facts = eval(facts)
-                except:
-                    try:
-                        facts = eval(facts.replace("['", '["').replace("']", '"]').replace("', '", '", "'))
-                    except:
-                        continue
-                print(facts)
-                for fact in facts:
-                    if fact['fact'][2] == "unknown":
-                        continue
-                    flag = 0
-                    if fact['fact'][1] not in relation_desc:
-                        continue
-                    for index, true_fact in enumerate(sample['same_fact_list']):
-                        if fact['fact'] in true_fact:
-                            print("right:", fact)
-                            flag = 1
-                            if index not in fact_index:
-                                tp += 1
-                                right.append(fact)
-                                fact_index.append(index)
-                            else:
-                                print("overlap fact")
-                            break
-                    if not flag:
-                        print("wrong:", fact)
-                        fp += 1
-                        wrong.append(fact)
-            miss = [s_f_l for i, s_f_l in enumerate(sample['same_fact_list']) if i not in fact_index]
-        if wrong:
-            wrong_list.append({
-                "text": sentence,
-                "predict_relations": list(set(list(ori_relations.keys()))),
-                "predict_entity": ori_entities,
-                "wrong_fact_list": wrong,
-                "miss_fact_list": miss,
-                "true_fact_list": sample['same_fact_list']
-            })
-        if right:
-            right_list.append({
-                "text": sentence,
-                "predict_relations": list(set(list(ori_relations.keys()))),
-                "predict_entity": ori_entities,
-                "right_fact_list": right,
-                "true_fact_list": sample['same_fact_list']
-            })
-    if wrong_list:
-        create_file_with_path(f"{result_save_path}/{test_relation}/wrong_redocred_{cuda_id + node * 8}.json")
-        json.dump(wrong_list, open(f"{result_save_path}/{test_relation}/wrong_redocred_{cuda_id + node * 8}.json", "w"), indent=4)
-    if right_list:
-        create_file_with_path(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id + node * 8}.json")
-        json.dump(right_list, open(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id + node * 8}.json", "w"), indent=4)
-    print(f"vicuna, tp: {tp}, fp: {fp}")
-
 
 def get_all_relation_count(redocred_dir, test_relation):
     test_data = json.load(open(f"/workspace/xll/autokg/data/test_data_important/{test_relation}.json"))
@@ -670,21 +388,24 @@ def get_relation_recall(redocred_dir):
 
 
 if __name__ == '__main__':
-    mode = "vicuna-13b-v1.5"
-    version = "v0"
+    parser = argparse.ArgumentParser(description='Inference script')
+    parser.add_argument('index', type=int, help='cuda_id')
+    parser.add_argument('--ckpt_path', required=True, help='Path to checkpoint')
+    parser.add_argument('--save_path', required=True, help='Path to save result')
+    args = parser.parse_args()
     test_relations = list(set(list(changed_relation.values()) + list(inverse_relation.values()) + unchanged_relation))
-    node = 0
-    cuda_id = int(sys.argv[1])
-    model_path = f"/workspace/xll/autokg/ckpt/{mode}/{version}/relations/checkpoint-3000"
+    cuda_id = args.ckpt_path
+    model_path = args.ckpt_path
+    save_path = args.save_path
     model, tokenizer = get_model_nodes(cuda_id, model_path)
     for relation in relation_desc.keys():
         if relation not in test_relations:
             continue
-        redocred_vicuna_inference(test_relation=relation, result_save_path=f"/workspace/xll/autokg/data/test_data_result/{mode}/{version}/redocred_test")
-        get_one_relation_count(redocred_dir=f"/workspace/xll/autokg/data/test_data_result/{mode}/{version}/redocred_test/{relation}", test_relation=relation)
-    redocred_vicuna_inference(test_relation="all", result_save_path=f"/workspace/xll/autokg/data/test_data_result/{mode}/{version}/redocred_test")
-    get_all_relation_count(redocred_dir=f"/workspace/xll/autokg/data/test_data_result/{mode}/{version}/redocred_test/all", test_relation="all")
-    for relation in relation_desc.keys():
-        if relation not in test_relations:
-            continue
-        get_one_relation_count(redocred_dir=f"/workspace/xll/autokg/data/test_data_result/{mode}/{version}/redocred_test/{relation}", test_relation=relation)
+        redocred_vicuna_inference(test_relation=relation, result_save_path=save_path)
+        get_one_relation_count(redocred_dir=os.path.join(save_path, relation), test_relation=relation)
+    # redocred_vicuna_inference(test_relation="all", result_save_path=save_path)
+    # get_all_relation_count(redocred_dir=os.path.join(save_path, "all"), test_relation="all")
+    # for relation in relation_desc.keys():
+    #     if relation not in test_relations:
+    #         continue
+    #     get_one_relation_count(redocred_dir=os.path.join(save_path,relation), test_relation=relation)

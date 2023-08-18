@@ -233,7 +233,11 @@ bash train.sh
 ### 推理
 
 #### 运行[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集，检查效果
-
+```shell
+# 需要在shell中指定预训练好的ckpt路径
+cd code/model_inference
+bash run_13b_vicuna_v0.sh
+```
 #### 命令行测试模式
 
 ```shell
