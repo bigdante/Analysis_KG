@@ -126,7 +126,6 @@ def redocred_vicuna_inference_user_data():
             relation_analysis = inference(model, tokenizer, relation_prompt)
             relation_list_prompt = relation_list_template.format(sentences=sentence, relation_analysis=relation_analysis)
             relation_list = inference(model, tokenizer, relation_list_prompt)
-            print(relation_list)
             ori_relations = list(set(relation_list.split("\n")))
             for index, relation in enumerate(ori_relations):
                 if relation in relation_desc:
@@ -139,7 +138,6 @@ def redocred_vicuna_inference_user_data():
             subjects_analysis = inference(model, tokenizer, subjects_prompt)
             entity_list_prompt = entity_list_template.format(description=relation_desc.get(relation), sentences=sentences, subjects_analysis=subjects_analysis)
             entity_list = inference(model, tokenizer, entity_list_prompt)
-            print("ori_entities: ", entity_list)
             ori_entities = list(set(entity_list.split("\n")))
             entities = []
             for entity in ori_entities:
