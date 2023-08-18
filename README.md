@@ -231,13 +231,15 @@ bash train.sh
 ```
 
 ### 推理
-#### 运行[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集，检查效果
+#### 运行[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集，检查效果。
+首先下载[ckpt](https://cloud.tsinghua.edu.cn/d/ead42cf68f484c73af22/)。
 ```shell
-# 需要在shell中指定预训练好的ckpt路径，保存的路径, cuda_id。
+# 在shell中指定ckpt路径，结果保存的路径, cuda_id。
 cd code/model_inference
 bash run_13b_vicuna_v0.sh
 ```
 #### 命令行测试模式
+命令行模式，用于手动逐个输入句子，体验效果。
 ```shell
 # 需要在shell中指定预训练好的ckpt路径，cuda_id。
 cd code/model_inference
