@@ -197,7 +197,7 @@ Also, specify the path for saving the training data in the shell. [Intermediate 
 cd code/data_process/
 bash data_process.sh
 ```
-### train
+### finetune vicuna model
 Our code is derived from [FastChat](https://github.com/lm-sys/FastChat/tree/main).
 Before running the script, you need to specify the training dataset path and the checkpoint saving path within the script.
 ```shell
