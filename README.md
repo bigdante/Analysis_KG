@@ -240,7 +240,7 @@ bash run_13b_vicuna_v0.sh
 ```
 #### 命令行测试模式
 命令行模式，用于手动逐个输入句子，体验效果。
-![web-demo](resources/vicuna.gif)
+![web-demo](https://github.com/bigdante/Analysis_KG/blob/main/resources/vicuna.gif)
 
 
 ```shell
