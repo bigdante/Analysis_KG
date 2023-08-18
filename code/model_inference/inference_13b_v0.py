@@ -225,11 +225,11 @@ def redocred_vicuna_inference(test_relation=None, result_save_path=None):
                 "true_fact_list": sample['same_fact_list']
             })
     if wrong_list:
-        create_file_with_path(f"{result_save_path}/{test_relation}/wrong_redocred_{cuda_id + node * 8}.json")
-        json.dump(wrong_list, open(f"{result_save_path}/{test_relation}/wrong_redocred_{cuda_id + node * 8}.json", "w"), indent=4)
+        create_file_with_path(f"{result_save_path}/{test_relation}/wrong_redocred_{cuda_id}.json")
+        json.dump(wrong_list, open(f"{result_save_path}/{test_relation}/wrong_redocred_{cuda_id}.json", "w"), indent=4)
     if right_list:
-        create_file_with_path(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id + node * 8}.json")
-        json.dump(right_list, open(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id + node * 8}.json", "w"), indent=4)
+        create_file_with_path(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id}.json")
+        json.dump(right_list, open(f"{result_save_path}/{test_relation}/right_redocred_{cuda_id}.json", "w"), indent=4)
 
 def get_all_relation_count(redocred_dir, test_relation):
     test_data = json.load(open(f"/workspace/xll/autokg/data/test_data_important/{test_relation}.json"))
