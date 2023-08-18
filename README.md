@@ -231,7 +231,7 @@ bash train.sh
 ```
 
 ### 推理
-#### 运行[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集，检查效果。
+#### 运行[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集，检查模型对每个relation的表现效果。
 首先下载[ckpt](https://cloud.tsinghua.edu.cn/d/ead42cf68f484c73af22/)。
 ```shell
 # 在shell中指定ckpt路径，结果保存的路径, cuda_id。
