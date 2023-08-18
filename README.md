@@ -231,20 +231,17 @@ bash train.sh
 ```
 
 ### 推理
-### 命令行模式
+
+### 运行[Re-DocRED](https://github.com/tonytan48/Re-DocRED)数据集，检查效果
+
+### 命令行测试模式
 
 ```shell
     
 ```
 
-如果是，只需要跟之前一样设定 `model_name_or_path`：
 
-```shell
---model_name_or_path $CHECKPOINT_PATH
-```
 
-评测指标为中文 Rouge score 和 BLEU-4。生成的结果保存在
-`./output/adgen-chatglm2-6b-pt-128-2e-2/generated_predictions.txt`。
 
 ### 例子
 #### 示例1
