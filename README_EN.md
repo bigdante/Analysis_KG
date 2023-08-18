@@ -231,9 +231,10 @@ cd code/model_inference
 bash mode_test.sh
 ```
 
-#### chatgpt verify
+#### ChatGPT verify
 We have developed a simplified fact verification system based on ChatGPT Turbo 3.5. This system is used to validate whether the generated triple facts are accurate.
-In command-line testing mode, you can enable the functionality by adding the `--chatgpt_check` parameter.
+In command-line testing mode, you can enable the functionality by adding the `--chatgpt_check` parameter. ChatGPT will determine the correctness of a fact based solely on context and the definition of the relationship. It will output either True or False.
+Similarly, you need to set up the API key as in the above-described training data preparation phase.
 ```shell
 # Specify the `ckpt` path, the path for saving results, the `cuda_id` , and --chatgpt_check in the shell.
 cd code/model_inference
